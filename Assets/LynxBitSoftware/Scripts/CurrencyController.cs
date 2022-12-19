@@ -8,7 +8,7 @@ public class CurrencyController : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        currency_cash = 10;
+        currency_cash = 0;
     }
     //Cash stuff
     public void AddCurrencyCash(int amount)
