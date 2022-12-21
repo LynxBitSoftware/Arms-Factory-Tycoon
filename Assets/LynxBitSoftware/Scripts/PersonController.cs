@@ -21,6 +21,7 @@ public class PersonController : MonoBehaviour
         Vector3 itemSpawnPoint = conveyor.conveyorWaypointsList[constructor.GetId()-1].transform.position;
         testItem.GetComponent<SpriteRenderer>().sprite = constructor.GetItem().GetSpriteItem();
         GameObject itemSpawned = Instantiate(testItem, itemSpawnPoint, Quaternion.identity);
+        itemSpawned.GetComponent<ItemData>().item = constructor.GetItem();
         StartCoroutine(moveItemConveyor(itemSpawned));
         moveItemConveyor(itemSpawned);
     }

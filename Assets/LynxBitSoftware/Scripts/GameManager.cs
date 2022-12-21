@@ -31,14 +31,14 @@ public class GameManager : MonoBehaviour
     [SerializeField]
     private CurrencyController currency;
     [SerializeField]
-    private int wins, loses, timeToPayPlayer, profit;
+    public int wins, loses, timeToPayPlayer, profit, itemsStock;
     // Start is called before the first frame update
     void Start()
     {
         profit = 0;
         FindCurrencyController();
         //Test of salary
-        StartCoroutine(CoroutineToPayPlayer());
+        //StartCoroutine(CoroutineToPayPlayer());
     }
 
     // Update is called once per frame

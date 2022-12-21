@@ -18,4 +18,4 @@ MonoBehaviour:
   speed: 0.5
   salary: 1
   timeToProduce: 5
-  item: {fileID: 0}
+  item: {fileID: 11400000, guid: 0b683a98b6dc31042b15cd0b8106fffe, type: 2}
