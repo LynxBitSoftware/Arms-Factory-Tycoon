@@ -31,7 +31,9 @@ public class GameManager : MonoBehaviour
     [SerializeField]
     private CurrencyController currency;
     [SerializeField]
-    public int wins, loses, timeToPayPlayer, profit, itemsStock;
+    public float wins, loses, profit;
+    [SerializeField]
+    public int itemsStock, timeToPayPlayer;
     // Start is called before the first frame update
     void Start()
     {
@@ -77,13 +79,15 @@ public class GameManager : MonoBehaviour
         }
     
     }
+    /*
     public int GetIncomePerMin()
     {
         int conversion = profit * (60 / timeToPayPlayer);
         return conversion;
     }
+    */
     //Por ahora solo convertimos hasta el B nos faltaria encontrar la manera de llegar mucho más lejos de manera más efectivas en un futuro
-    public string ConvertValueForUI(int number) 
+    public string ConvertValueForUI(float number) 
     {
         if (number >= 1000000000) // si el número es mayor o igual a 1.000.000.000 (1 mil millones)
         {

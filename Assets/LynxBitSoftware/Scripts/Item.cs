@@ -15,12 +15,19 @@ public class Item : ScriptableObject
     private int level;
     [SerializeField]
     private int value;
+    [SerializeField]
+    private float multiplicador;
 
     //Getters and Setters
     public int GetId() 
     {
         return this.id;
     }
+    public float GetMultiplier()
+    {
+        return this.multiplicador;
+    }
+
     public string GetAlias()
     {
         return this.alias;
@@ -40,6 +47,10 @@ public class Item : ScriptableObject
     public void SetId(int ID) 
     {
         this.id = ID;
+    }
+    public void SetMultiplier(float multiplier) 
+    {
+        this.multiplicador = multiplier;
     }
     public void SetAlias(string Alias)
     {

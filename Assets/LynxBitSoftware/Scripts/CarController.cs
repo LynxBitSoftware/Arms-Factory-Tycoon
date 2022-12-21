@@ -34,13 +34,13 @@ public class CarController : MonoBehaviour
         itemsToTransport.Clear();
     }
 
-    public int CountItemValue() 
+    public float CountItemValue() 
     {
-        int totalValue = 0;
+        float totalValue = 0;
         if (itemsToTransport.Count == 100) {
             for (int i = 0; i < itemsToTransport.Count; i++)
             {
-                totalValue += itemsToTransport[i].GetValue();
+                totalValue += itemsToTransport[i].GetValue() * itemsToTransport[i].GetMultiplier(); 
             }
             return totalValue;
         }
