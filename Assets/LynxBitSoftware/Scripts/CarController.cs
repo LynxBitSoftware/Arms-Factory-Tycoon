@@ -9,8 +9,17 @@ public class CarController : MonoBehaviour
     private List<Item> itemsToTransport;
     [SerializeField]
     private bool canStack;
+    [SerializeField]
+    private int numOfItemsStackable;
     // Start is called before the first frame update
-
+    public void SetNumberOfStackableItems(int maxItem)
+    {
+        this.numOfItemsStackable = maxItem;
+    }
+    public int GetNumberOfStackableItems()
+    {
+        return this.numOfItemsStackable;
+    }
     public void stackItemOnPile(Item item) 
     {
         itemsToTransport.Add(item);
@@ -25,8 +34,9 @@ public class CarController : MonoBehaviour
         if (canStack)
         {
             stackItemOnPile(collision.GetComponent<ItemData>().item);
-            Destroy(collision.gameObject, 1.5f);
+            
         }
+        Destroy(collision.gameObject, 1f);
     }
 
     public void ClearList() 
@@ -37,7 +47,7 @@ public class CarController : MonoBehaviour
     public float CountItemValue() 
     {
         float totalValue = 0;
-        if (itemsToTransport.Count == 100) {
+        if (itemsToTransport.Count == numOfItemsStackable) {
             for (int i = 0; i < itemsToTransport.Count; i++)
             {
                 totalValue += itemsToTransport[i].GetValue() * itemsToTransport[i].GetMultiplier(); 
@@ -49,7 +59,7 @@ public class CarController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (itemsToTransport.Count == 100) 
+        if (itemsToTransport.Count == numOfItemsStackable) 
         {
             GameManager.instance.wins = CountItemValue();
             if(GameManager.instance.wins != -1)

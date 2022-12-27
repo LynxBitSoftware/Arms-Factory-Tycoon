@@ -22,6 +22,9 @@ public class FilterController : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        collision.GetComponent<ItemData>().item.SetMultiplier(multiplier);
+        if (collision.GetComponent<ItemData>().item.GetMultiplier() != multiplier)
+        {
+            collision.GetComponent<ItemData>().item.SetMultiplier(multiplier);
+        }
     }
 }

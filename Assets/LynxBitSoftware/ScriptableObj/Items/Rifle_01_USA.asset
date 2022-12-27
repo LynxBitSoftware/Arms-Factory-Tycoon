@@ -16,5 +16,5 @@ MonoBehaviour:
   alias: M4 Garand
   spriteItem: {fileID: 1698471451, guid: 5df5c876114fa814f8d8f0035ddb7865, type: 3}
   level: 1
-  value: 10
+  value: 5
   multiplicador: 1
