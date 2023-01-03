@@ -23,9 +23,9 @@ public class UIController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        for (int i = 0; i < cars.Count; i++) 
+        for (int i = 0; i < textCapacityCars.Count; i++) 
         {
-            textCapacityCars[i].text = GameManager.instance.itemsStock + " / " + cars[i].GetNumberOfStackableItems();
+            textCapacityCars[i].text = cars[i].GetSizeItemsInCar() + " / " + cars[i].GetNumberOfStackableItems();
         }
         textCash.text = GameManager.instance.ConvertValueForUI(currency.GetCurrencyCash()) + "$";
         //textIncomePerMin.text = GameManager.instance.ConvertValueForUI(GameManager.instance.GetIncomePerMin()) + " / min";

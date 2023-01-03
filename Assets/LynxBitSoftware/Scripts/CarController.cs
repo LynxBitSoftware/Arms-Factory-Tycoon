@@ -8,10 +8,15 @@ public class CarController : MonoBehaviour
     [SerializeField]
     private List<Item> itemsToTransport;
     [SerializeField]
-    private bool canStack;
+    public bool canStack;
+    public TruckMovement truckMovement;
     [SerializeField]
     private int numOfItemsStackable;
     // Start is called before the first frame update
+    public int GetSizeItemsInCar() 
+    {
+        return itemsToTransport.Count;
+    }
     public void SetNumberOfStackableItems(int maxItem)
     {
         this.numOfItemsStackable = maxItem;
@@ -39,8 +44,9 @@ public class CarController : MonoBehaviour
         if (canStack)
         {
             stackItemOnPile(collision.GetComponent<Transportist>().itemList);
+            collision.GetComponent<Transportist>().itemList.Clear();
             //stackItemOnPile(collision.GetComponent<ItemData>().item);
-            
+
         }
     }
 
@@ -66,7 +72,9 @@ public class CarController : MonoBehaviour
     {
         if (itemsToTransport.Count == numOfItemsStackable) 
         {
+            canStack = false;
             GameManager.instance.wins = CountItemValue();
+            truckMovement.startAnim = true;
             if(GameManager.instance.wins != -1)
             {
                 GameManager.instance.GivePlayerSalary();

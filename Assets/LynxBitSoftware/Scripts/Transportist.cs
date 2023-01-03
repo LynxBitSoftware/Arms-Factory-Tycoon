@@ -4,16 +4,69 @@ using UnityEngine;
 
 public class Transportist : MonoBehaviour
 {
+    public Distribuidor distribuidor;
     public List<Item> itemList;
+    public List<CarController> cars;
+    public bool canPickUpItem = true;
+    public Vector3 initPos;
+    [SerializeField]
+    private int numOfItemsStackable;
+    // Start is called before the first frame update
+    public void SetNumberOfStackableItems(int maxItem)
+    {
+        this.numOfItemsStackable = maxItem;
+    }
+    public int GetNumberOfStackableItems()
+    {
+        return this.numOfItemsStackable;
+    }
     // Start is called before the first frame update
     void Start()
     {
-        
+        initPos = this.transform.position;
     }
 
     // Update is called once per frame
     void Update()
     {
-        
+        if (numOfItemsStackable == itemList.Count && canPickUpItem) {
+            canPickUpItem = false;
+            //Start giving item to car
+            DistributeItems();
+        }
+    }
+    public void DistributeItems() 
+    {
+        checkForAvaliableTruck();
+    }
+    public void checkForAvaliableTruck() 
+    {
+        for (int i = 0; i < cars.Count; i++) 
+        {
+            if (cars[i].canStack && itemList.Count > 0) 
+            {
+                StartCoroutine(SetDestination(cars[i].gameObject.transform.transform.position));
+                break;
+            }
+        }
+    }
+    public IEnumerator SetDestination(Vector3 destination)
+    {
+        while (this.gameObject.transform.position != destination)
+        {
+            this.gameObject.transform.position = Vector3.MoveTowards(this.gameObject.transform.position, destination, Time.deltaTime * distribuidor.GetSpeed());
+            yield return null;
+        }
+        StartCoroutine(ReturnToInitPos());
+    }
+    IEnumerator ReturnToInitPos() 
+    {
+        while (this.gameObject.transform.position != initPos)
+        {
+            this.gameObject.transform.position = Vector3.MoveTowards(this.gameObject.transform.position, initPos, Time.deltaTime * distribuidor.GetSpeed());
+            yield return null;
+        }
+        canPickUpItem = true;
+        yield return new WaitForSeconds(2f);
     }
 }

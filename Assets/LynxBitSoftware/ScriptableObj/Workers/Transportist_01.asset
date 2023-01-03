@@ -10,11 +10,11 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: a585c011986dffc498c18410be422fcd, type: 3}
-  m_Name: Distribuidor
+  m_Name: Transportist_01
   m_EditorClassIdentifier: 
   id: 2
   alias: James
   level: 1
-  speed: 1
+  speed: 10
   salary: 10
   timeToTransport: 0

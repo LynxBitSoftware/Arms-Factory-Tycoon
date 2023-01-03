@@ -332,6 +332,7 @@ GameObject:
   m_Component:
   - component: {fileID: 17697362}
   - component: {fileID: 17697361}
+  - component: {fileID: 17697363}
   m_Layer: 0
   m_Name: Car 06
   m_TagString: Untagged
@@ -408,6 +409,21 @@ Transform:
   m_Father: {fileID: 1294664719}
   m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &17697363
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 17697360}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3c4f9e3c9fd553a4faa3226f346d44af, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  initPos: {x: 0, y: 0, z: 0}
+  car: {fileID: 886842359}
+  startAnim: 0
 --- !u!1 &18928655
 GameObject:
   m_ObjectHideFlags: 0
@@ -1074,7 +1090,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 87324933}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0.62599987, y: 0.079, z: -0.04}
+  m_LocalPosition: {x: 0.511, y: 0.035, z: -0.04}
   m_LocalScale: {x: 0.15, y: 0.15, z: 0.15}
   m_ConstrainProportionsScale: 1
   m_Children: []
@@ -1115,7 +1131,7 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: -1.0918875, y: -0.26496267}
+  m_Offset: {x: 0, y: 0}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0, y: 0}
@@ -1142,7 +1158,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   itemsToTransport: []
   canStack: 1
-  numOfItemsStackable: 25
+  truckMovement: {fileID: 260833259}
+  numOfItemsStackable: 20
 --- !u!1 &107965040
 GameObject:
   m_ObjectHideFlags: 0
@@ -1456,7 +1473,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 134652943}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0.62599987, y: 0.039000005, z: -0.15}
+  m_LocalPosition: {x: 0.433, y: 0.026, z: -0.15}
   m_LocalScale: {x: 0.15, y: 0.15, z: 0.15}
   m_ConstrainProportionsScale: 1
   m_Children: []
@@ -1497,7 +1514,7 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: -1.0918875, y: -0.26496267}
+  m_Offset: {x: 0, y: 0}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0, y: 0}
@@ -1524,7 +1541,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   itemsToTransport: []
   canStack: 1
-  numOfItemsStackable: 25
+  truckMovement: {fileID: 1833858886}
+  numOfItemsStackable: 20
 --- !u!1 &144883952
 GameObject:
   m_ObjectHideFlags: 0
@@ -2288,6 +2306,7 @@ GameObject:
   m_Component:
   - component: {fileID: 260833258}
   - component: {fileID: 260833257}
+  - component: {fileID: 260833259}
   m_Layer: 0
   m_Name: Car 05
   m_TagString: Untagged
@@ -2364,6 +2383,21 @@ Transform:
   m_Father: {fileID: 1294664719}
   m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &260833259
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 260833256}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3c4f9e3c9fd553a4faa3226f346d44af, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  initPos: {x: 0, y: 0, z: 0}
+  car: {fileID: 87324937}
+  startAnim: 0
 --- !u!1 &273243657
 GameObject:
   m_ObjectHideFlags: 0
@@ -5684,7 +5718,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 628514077}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0.62599987, y: 0.071, z: -0.05}
+  m_LocalPosition: {x: 0.394, y: 0.027, z: -0.05}
   m_LocalScale: {x: 0.15, y: 0.15, z: 0.15}
   m_ConstrainProportionsScale: 1
   m_Children: []
@@ -5725,7 +5759,7 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: -1.0918875, y: -0.26496267}
+  m_Offset: {x: 0, y: 0}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0, y: 0}
@@ -5752,7 +5786,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   itemsToTransport: []
   canStack: 1
-  numOfItemsStackable: 25
+  truckMovement: {fileID: 1931262294}
+  numOfItemsStackable: 20
 --- !u!1 &639661558
 GameObject:
   m_ObjectHideFlags: 0
@@ -7155,6 +7190,7 @@ GameObject:
   m_Component:
   - component: {fileID: 879625378}
   - component: {fileID: 879625377}
+  - component: {fileID: 879625379}
   m_Layer: 0
   m_Name: Car 03
   m_TagString: Untagged
@@ -7231,6 +7267,21 @@ Transform:
   m_Father: {fileID: 1294664719}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &879625379
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 879625376}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3c4f9e3c9fd553a4faa3226f346d44af, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  initPos: {x: 0, y: 0, z: 0}
+  car: {fileID: 879694528}
+  startAnim: 0
 --- !u!1 &879694524
 GameObject:
   m_ObjectHideFlags: 0
@@ -7258,7 +7309,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 879694524}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0.622, y: 0.036, z: -0.1}
+  m_LocalPosition: {x: 0.33, y: -0.008000006, z: -0.1}
   m_LocalScale: {x: 0.15, y: 0.15, z: 0.15}
   m_ConstrainProportionsScale: 1
   m_Children: []
@@ -7299,7 +7350,7 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: -1.0918875, y: -0.26496267}
+  m_Offset: {x: 0, y: 0}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0, y: 0}
@@ -7326,7 +7377,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   itemsToTransport: []
   canStack: 1
-  numOfItemsStackable: 25
+  truckMovement: {fileID: 879625379}
+  numOfItemsStackable: 20
 --- !u!1 &886842355
 GameObject:
   m_ObjectHideFlags: 0
@@ -7354,7 +7406,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 886842355}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0.62599987, y: 0.056, z: -0.020000001}
+  m_LocalPosition: {x: 0.625, y: 0.011999997, z: -0.020000001}
   m_LocalScale: {x: 0.15, y: 0.15, z: 0.15}
   m_ConstrainProportionsScale: 1
   m_Children: []
@@ -7395,7 +7447,7 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: -1.0918875, y: -0.26496267}
+  m_Offset: {x: 0, y: 0}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0, y: 0}
@@ -7422,7 +7474,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   itemsToTransport: []
   canStack: 1
-  numOfItemsStackable: 25
+  truckMovement: {fileID: 17697363}
+  numOfItemsStackable: 20
 --- !u!1 &905227238
 GameObject:
   m_ObjectHideFlags: 0
@@ -8747,7 +8800,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 1 / 25
+  m_text: '1 / '
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: d1c9ff930d44e9749a85d98e068fbfbf, type: 2}
   m_sharedMaterial: {fileID: 2084416866331388926, guid: d1c9ff930d44e9749a85d98e068fbfbf, type: 2}
@@ -9537,9 +9590,11 @@ GameObject:
   m_Component:
   - component: {fileID: 1118070354}
   - component: {fileID: 1118070353}
+  - component: {fileID: 1118070356}
+  - component: {fileID: 1118070355}
   m_Layer: 0
   m_Name: Transportist_01
-  m_TagString: Untagged
+  m_TagString: Worker
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -9604,13 +9659,63 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1118070351}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -8.44, y: -1.68, z: -1}
+  m_LocalPosition: {x: -8.39, y: -1.68, z: -1}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 119796434}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!61 &1118070355
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1118070351}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0.5, y: 0.5}
+    oldSize: {x: 1, y: 1}
+    newSize: {x: 1, y: 1}
+    adaptiveTilingThreshold: 0.5
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 1, y: 1}
+  m_EdgeRadius: 0
+--- !u!114 &1118070356
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1118070351}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9eebba7c939e86849baca9f041860ec6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  distribuidor: {fileID: 11400000, guid: 08277b96a3d658a41b1fea5c012c71d4, type: 2}
+  itemList: []
+  cars:
+  - {fileID: 1587066069}
+  - {fileID: 134652947}
+  - {fileID: 879694528}
+  - {fileID: 628514081}
+  - {fileID: 87324937}
+  - {fileID: 886842359}
+  canPickUpItem: 1
+  initPos: {x: 0, y: 0, z: 0}
+  numOfItemsStackable: 10
 --- !u!1 &1118965390
 GameObject:
   m_ObjectHideFlags: 0
@@ -14225,9 +14330,9 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1584262557}
-  - component: {fileID: 1584262560}
   - component: {fileID: 1584262559}
   - component: {fileID: 1584262558}
+  - component: {fileID: 1584262560}
   m_Layer: 0
   m_Name: ItemDispenserToStock
   m_TagString: Untagged
@@ -14243,7 +14348,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1584262556}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -7.34, y: -0.23, z: 0}
+  m_LocalPosition: {x: -7.65, y: -0.23, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -14284,7 +14389,7 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: -1.0918875, y: -0.26496267}
+  m_Offset: {x: -0.8317249, y: -0.26496267}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0, y: 0}
@@ -14295,7 +14400,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 1.316225, y: 1.1623759}
+  m_Size: {x: 0.79589987, y: 1.1623759}
   m_EdgeRadius: 0
 --- !u!114 &1584262560
 MonoBehaviour:
@@ -14306,12 +14411,12 @@ MonoBehaviour:
   m_GameObject: {fileID: 1584262556}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7e6d3be42f7d28242b4163210374eff6, type: 3}
+  m_Script: {fileID: 11500000, guid: 9ae7879e251a26a41b618ff17b2ba156, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  itemsToTransport: []
-  canStack: 1
-  numOfItemsStackable: 25
+  transportist: {fileID: 1118070351}
+  totalItemStock: 100
+  itemsToStock: []
 --- !u!1 &1587066067
 GameObject:
   m_ObjectHideFlags: 0
@@ -14344,7 +14449,7 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: -1.0918875, y: -0.26496267}
+  m_Offset: {x: 0, y: 0}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0, y: 0}
@@ -14371,7 +14476,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   itemsToTransport: []
   canStack: 1
-  numOfItemsStackable: 25
+  truckMovement: {fileID: 1825248088}
+  numOfItemsStackable: 20
 --- !u!4 &1587066070
 Transform:
   m_ObjectHideFlags: 0
@@ -14380,7 +14486,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1587066067}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0.6299999, y: 0.046000004, z: -0.2}
+  m_LocalPosition: {x: 0.644, y: 0.0019999994, z: -0.2}
   m_LocalScale: {x: 0.15, y: 0.15, z: 0.15}
   m_ConstrainProportionsScale: 1
   m_Children: []
@@ -16570,10 +16676,22 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   currency: {fileID: 0}
-  cars: []
+  cars:
+  - {fileID: 1587066069}
+  - {fileID: 134652947}
+  - {fileID: 879694528}
+  - {fileID: 628514081}
+  - {fileID: 87324937}
+  - {fileID: 886842359}
   textCash: {fileID: 1723136667}
   textIncomePerMin: {fileID: 0}
-  textCapacityCars: []
+  textCapacityCars:
+  - {fileID: 1152433475}
+  - {fileID: 602292123}
+  - {fileID: 61662441}
+  - {fileID: 1352798701}
+  - {fileID: 1018369712}
+  - {fileID: 1988970396}
 --- !u!114 &1771497226
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -17183,6 +17301,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1825248087}
   - component: {fileID: 1825248086}
+  - component: {fileID: 1825248088}
   m_Layer: 0
   m_Name: Car 01
   m_TagString: Untagged
@@ -17250,7 +17369,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1825248085}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -13.06, y: 1.9199998, z: 1}
+  m_LocalPosition: {x: -12.96, y: 1.9199998, z: 1}
   m_LocalScale: {x: 5, y: 5, z: 5}
   m_ConstrainProportionsScale: 1
   m_Children:
@@ -17259,6 +17378,21 @@ Transform:
   m_Father: {fileID: 1294664719}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1825248088
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1825248085}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3c4f9e3c9fd553a4faa3226f346d44af, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  initPos: {x: 0, y: 0, z: 0}
+  car: {fileID: 1587066069}
+  startAnim: 0
 --- !u!1 &1833858883
 GameObject:
   m_ObjectHideFlags: 0
@@ -17269,6 +17403,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1833858885}
   - component: {fileID: 1833858884}
+  - component: {fileID: 1833858886}
   m_Layer: 0
   m_Name: Car 02
   m_TagString: Untagged
@@ -17345,6 +17480,21 @@ Transform:
   m_Father: {fileID: 1294664719}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1833858886
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1833858883}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3c4f9e3c9fd553a4faa3226f346d44af, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  initPos: {x: 0, y: 0, z: 0}
+  car: {fileID: 134652947}
+  startAnim: 0
 --- !u!1 &1840917515
 GameObject:
   m_ObjectHideFlags: 0
@@ -18242,6 +18392,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1931262293}
   - component: {fileID: 1931262292}
+  - component: {fileID: 1931262294}
   m_Layer: 0
   m_Name: Car 04
   m_TagString: Untagged
@@ -18318,6 +18469,21 @@ Transform:
   m_Father: {fileID: 1294664719}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1931262294
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1931262291}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3c4f9e3c9fd553a4faa3226f346d44af, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  initPos: {x: 0, y: 0, z: 0}
+  car: {fileID: 628514081}
+  startAnim: 0
 --- !u!1 &1941689797
 GameObject:
   m_ObjectHideFlags: 0
