@@ -7,9 +7,11 @@ public class UIController : MonoBehaviour
     [SerializeField]
     private CurrencyController currency;
     [SerializeField]
-    private CarController car;
+    private List<CarController> cars;
     [SerializeField]
-    private TextMeshProUGUI textCash, textIncomePerMin, textCapacityCar;
+    private TextMeshProUGUI textCash, textIncomePerMin;
+    [SerializeField]
+    private List<TextMeshProUGUI> textCapacityCars;
     // Start is called before the first frame update
     void Start()
     {
@@ -21,7 +23,10 @@ public class UIController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        textCapacityCar.text = GameManager.instance.itemsStock + " / " + car.GetNumberOfStackableItems();
+        for (int i = 0; i < cars.Count; i++) 
+        {
+            textCapacityCars[i].text = GameManager.instance.itemsStock + " / " + cars[i].GetNumberOfStackableItems();
+        }
         textCash.text = GameManager.instance.ConvertValueForUI(currency.GetCurrencyCash()) + "$";
         //textIncomePerMin.text = GameManager.instance.ConvertValueForUI(GameManager.instance.GetIncomePerMin()) + " / min";
     }

@@ -20,10 +20,15 @@ public class CarController : MonoBehaviour
     {
         return this.numOfItemsStackable;
     }
-    public void stackItemOnPile(Item item) 
+    public void stackItemOnPile(List<Item> items) 
     {
-        itemsToTransport.Add(item);
-        GameManager.instance.itemsStock += 1;
+        for(int i = 0; i < items.Count; i++)
+        {
+            itemsToTransport.Add(items[i]);
+        }
+        GameManager.instance.itemsStock += items.Count;
+        //itemsToTransport.Add(item);
+        //GameManager.instance.itemsStock += 1;
     }
     void Start()
     {
@@ -33,10 +38,10 @@ public class CarController : MonoBehaviour
     {
         if (canStack)
         {
-            stackItemOnPile(collision.GetComponent<ItemData>().item);
+            stackItemOnPile(collision.GetComponent<Transportist>().itemList);
+            //stackItemOnPile(collision.GetComponent<ItemData>().item);
             
         }
-        Destroy(collision.gameObject, 1f);
     }
 
     public void ClearList() 
