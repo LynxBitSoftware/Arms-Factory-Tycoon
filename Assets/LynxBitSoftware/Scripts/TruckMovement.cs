@@ -24,9 +24,9 @@ public class TruckMovement : MonoBehaviour
 
     public IEnumerator Move()
     {
-        while (this.gameObject.transform.position != initPos + new Vector3(-5,0))
+        while (this.gameObject.transform.position != initPos + new Vector3(-7,0))
         {
-            this.gameObject.transform.position = Vector3.MoveTowards(this.gameObject.transform.position, initPos + new Vector3(-5, 0), Time.deltaTime * 1);
+            this.gameObject.transform.position = Vector3.MoveTowards(this.gameObject.transform.position, initPos + new Vector3(-7, 0), Time.deltaTime * 1);
             yield return null;
         }
         StartCoroutine(ReturnToInitPos());
