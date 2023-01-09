@@ -17,5 +17,5 @@ MonoBehaviour:
   level: 1
   speed: 0.5
   salary: 1
-  timeToProduce: 0.25
+  timeToProduce: 2
   item: {fileID: 11400000, guid: 0b683a98b6dc31042b15cd0b8106fffe, type: 2}

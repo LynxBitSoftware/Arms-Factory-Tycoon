@@ -16,6 +16,22 @@ public class StockController : MonoBehaviour
     {
         return this.totalItemStock;
     }
+    public List<Item> GetItemsList() 
+    {
+        return this.itemsToStock;
+    }
+    public Item GetItemInStockPos(int id) 
+    {
+        if(id < itemsToStock.Count)
+        {
+            return this.itemsToStock[id];
+        }
+        return null;
+    }
+    public void DeleteItemOnList(int id) 
+    {
+        itemsToStock.RemoveAt(id);
+    }
     // Start is called before the first frame update
     void Start()
     {

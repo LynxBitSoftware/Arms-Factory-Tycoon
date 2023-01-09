@@ -5,6 +5,7 @@ using UnityEngine;
 public class Transportist : MonoBehaviour
 {
     public Distribuidor distribuidor;
+    public StockController stock;
     public List<Item> itemList;
     public List<CarController> cars;
     public bool canPickUpItem = true;
@@ -67,6 +68,28 @@ public class Transportist : MonoBehaviour
             yield return null;
         }
         canPickUpItem = true;
+        checkForAvaliableStock();
         yield return new WaitForSeconds(2f);
+    }
+
+    public void checkForAvaliableStock() 
+    {
+        if (stock.GetItemsList().Count > 0) 
+        { 
+            for(int i = 0; i < numOfItemsStackable; i++) 
+            {
+                if (stock.GetItemInStockPos(0) == null) { break; }
+                //if (i < stock.GetItemsList().Count)
+                //{
+                    itemList.Add(stock.GetItemInStockPos(0));
+                    stock.DeleteItemOnList(0);
+               // }
+            }
+        }
+    }
+
+    public void ClearList()
+    {
+        itemList.Clear();
     }
 }
