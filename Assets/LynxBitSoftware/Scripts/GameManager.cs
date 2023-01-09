@@ -7,7 +7,9 @@ public class GameManager : MonoBehaviour
 {
     // static instance of the GameManager
     public static GameManager instance;
-   
+
+    
+
 
     void Awake()
     {
@@ -34,6 +36,10 @@ public class GameManager : MonoBehaviour
     public float wins, loses, profit;
     [SerializeField]
     public int itemsStock, timeToPayPlayer;
+
+    [SerializeField]
+    private GameObject item_ui_gameobject;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -109,5 +115,17 @@ public class GameManager : MonoBehaviour
     public void changeScene(string scene)
     {
         SceneManager.LoadScene(scene, LoadSceneMode.Single);
+    }
+
+        public void itemUI()
+    {
+        if (item_ui_gameobject.activeSelf)
+        {
+            item_ui_gameobject.SetActive(false);
+        }
+        else
+        {
+            item_ui_gameobject.SetActive(true);
+        }
     }
 }

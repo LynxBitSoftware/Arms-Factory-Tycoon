@@ -12,6 +12,8 @@ public class UIController : MonoBehaviour
     private TextMeshProUGUI textCash, textIncomePerMin;
     [SerializeField]
     private List<TextMeshProUGUI> textCapacityCars;
+    
+
     // Start is called before the first frame update
     void Start()
     {
@@ -30,4 +32,6 @@ public class UIController : MonoBehaviour
         textCash.text = GameManager.instance.ConvertValueForUI(currency.GetCurrencyCash()) + "$";
         //textIncomePerMin.text = GameManager.instance.ConvertValueForUI(GameManager.instance.GetIncomePerMin()) + " / min";
     }
+
+    
 }
