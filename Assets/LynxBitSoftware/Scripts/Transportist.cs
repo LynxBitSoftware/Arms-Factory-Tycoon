@@ -12,6 +12,9 @@ public class Transportist : MonoBehaviour
     public Vector3 initPos;
     [SerializeField]
     private int numOfItemsStackable;
+    //UI 
+    public GameObject uiPerson;
+
     // Start is called before the first frame update
     public void SetNumberOfStackableItems(int maxItem)
     {
@@ -91,5 +94,14 @@ public class Transportist : MonoBehaviour
     public void ClearList()
     {
         itemList.Clear();
+    }
+
+    //When Click on GameObject
+    public void OnMouseDown()
+    {
+        if (uiPerson.activeSelf)
+            uiPerson.SetActive(false);
+        else
+            uiPerson.SetActive(true);
     }
 }

@@ -1,8 +1,10 @@
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
+using UnityEngine.UI;
 
-public class PersonController : MonoBehaviour
+public class WorkerController : MonoBehaviour
 {
     //SCO
     public Constructor constructor;
@@ -10,6 +12,15 @@ public class PersonController : MonoBehaviour
     private GameObject testItem;
     //Conveyor 
     public ConveyorController conveyor;
+    //UI 
+    public GameObject uiPerson;
+    //DataCosntructor
+    public TextMeshProUGUI ItemName, ItemDescription, CrafteableDescription, ButtonUpgradeable;
+    public Image ItemSprite;
+    
+
+    
+
     // Start is called before the first frame update
     void Start()
     {
@@ -43,4 +54,39 @@ public class PersonController : MonoBehaviour
     {
         
     }
+    
+    //When Click on GameObject
+    public void OnMouseDown()
+    {
+        if (uiPerson.activeSelf)
+            uiPerson.SetActive(false);
+        else
+        {
+            uiPerson.SetActive(true);
+            SetDataUI();
+        }
+    }
+
+    //Set data UI
+    /*
+     * BackgroundITEM
+                ItemName -- Alias
+                ItemImage -- WorkerSprite
+                ItemDescription -- level, timeToProduce, salario, itemCreado
+              //  CrafteableDescription --  AliasItem, SpriteItem, ValueItem, StatsItem
+                ButtonUpgrade -- CostUpgrade
+                ButtonExit
+        */
+    
+    public void SetDataUI()
+    {
+        ItemName.text = constructor.GetAlias();
+        ItemSprite.sprite = constructor.GetSpriteWorker();
+        ItemDescription.text = "Level: " + constructor.GetLevel() + "\n"
+            + "Time to Produce: " + constructor.GetTimeToProduce() + "\n"
+            + "Salary: " + constructor.GetSalary() + "\n"
+            + "Item: " + constructor.GetItem().GetAlias();
+    }
+
+    
 }
