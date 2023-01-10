@@ -16,7 +16,7 @@ public class WorkerController : MonoBehaviour
     public GameObject uiPerson;
     //DataCosntructor
     public TextMeshProUGUI ItemName, ItemDescription, CrafteableDescription, ButtonUpgradeable;
-    public Image ItemSprite;
+    public Image ItemSprite, ItemWorker;
     
 
     
@@ -59,9 +59,7 @@ public class WorkerController : MonoBehaviour
     //When Click on GameObject
     public void OnMouseDown()
     {
-        if (uiPerson.activeSelf)
-            uiPerson.SetActive(false);
-        else
+        if (!uiPerson.activeSelf)
         {
             uiPerson.SetActive(true);
             SetDataUI();
@@ -87,11 +85,16 @@ public class WorkerController : MonoBehaviour
     public void SetDataUI()
     {
         ItemName.text = constructor.GetAlias();
-        ItemSprite.sprite = constructor.GetSpriteWorker();
+        ItemWorker.sprite = constructor.GetSpriteWorker();
         ItemDescription.text = "Level: " + constructor.GetLevel() + "\n"
             + "Time to Produce: " + constructor.GetTimeToProduce() + "\n"
             + "Salary: " + constructor.GetSalary() + "\n"
-            + "Item: " + constructor.GetItem().GetAlias();
+            + "Item: " + constructor.GetItem().GetAlias()+"\n"
+            ;
+        ItemSprite.sprite = constructor.GetItem().GetSpriteItem();
+        CrafteableDescription.text = "Level: " + constructor.GetItem().GetLevel()+ "\n"
+            + "Value: " + constructor.GetItem().GetValue() + "\n"
+            ;
     }
 
     
