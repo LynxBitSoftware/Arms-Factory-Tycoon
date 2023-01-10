@@ -1,6 +1,8 @@
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class Transportist : MonoBehaviour
 {
@@ -14,6 +16,9 @@ public class Transportist : MonoBehaviour
     private int numOfItemsStackable;
     //UI 
     public GameObject uiPerson;
+    //DataCosntructor
+    public TextMeshProUGUI ItemName, ItemDescription, ButtonUpgradeable;
+    public Image ItemSprite;
 
     // Start is called before the first frame update
     public void SetNumberOfStackableItems(int maxItem)
@@ -112,9 +117,19 @@ public class Transportist : MonoBehaviour
     //When Click on GameObject
     public void OnMouseDown()
     {
-        if (uiPerson.activeSelf)
-            uiPerson.SetActive(false);
-        else
+        if (!uiPerson.activeSelf)
+        {
             uiPerson.SetActive(true);
+            SetDataUI();
+        }
+    }
+
+    public void SetDataUI()
+    {
+        ItemName.text = distribuidor.GetAlias();
+        ItemSprite.sprite = distribuidor.GetSpriteWorker();
+        ItemDescription.text = "Level: " + distribuidor.GetLevel() + "\n"
+            + "Salary: " + distribuidor.GetSalary() + "\n"
+            ;
     }
 }

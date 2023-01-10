@@ -7,6 +7,8 @@ public class Distribuidor : Trabajador
 {
     [SerializeField]
     private float timeToTransport;
+    [SerializeField]
+    private Sprite spriteWorker;
 
     //Setters and Getters
     public void SetTimeToTransport(float TimeToTransport)
@@ -16,5 +18,13 @@ public class Distribuidor : Trabajador
     public float GetTimeToTransport()
     {
         return this.timeToTransport;
+    }
+    public void SetSpriteWorker(Sprite _sprite)
+    {
+        this.spriteWorker = _sprite;
+    }
+    public Sprite GetSpriteWorker()
+    {
+        return this.spriteWorker;
     }
 }
