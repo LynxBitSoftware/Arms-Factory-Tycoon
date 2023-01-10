@@ -8,6 +8,8 @@ public class Person : ScriptableObject
     private int id;
     [SerializeField]
     private string alias;
+    [SerializeField]
+    private float costToUpgrade;
 
     //Setters and getters
     public void SetId(int Id)
@@ -21,11 +23,23 @@ public class Person : ScriptableObject
         this.alias = Alias;
     }
 
+    public void SetCostToUpgrade(float cost) 
+    {
+        if (this.costToUpgrade < cost) 
+        {
+            this.costToUpgrade = cost;
+        }
+    }
+
     public int GetId()
     {
         return this.id;
     }
 
+    public float GetCostToUpgrade() 
+    {
+        return this.costToUpgrade;
+    }
     public string GetAlias()
     {
         return this.alias;

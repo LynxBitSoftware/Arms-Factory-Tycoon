@@ -15,6 +15,6 @@ MonoBehaviour:
   id: 2
   alias: James
   level: 1
-  speed: 1
+  speed: 2
   salary: 10
   timeToTransport: 0

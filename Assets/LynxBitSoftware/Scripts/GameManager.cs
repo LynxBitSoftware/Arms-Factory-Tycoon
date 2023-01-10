@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -53,6 +54,17 @@ public class GameManager : MonoBehaviour
     void Update()
     {
 
+    }
+    public float CalculeCostToUpgrade(int id, int level)
+    {
+        float baseCost = 50; // some arbitrary base cost
+        float costMultiplier = 1.1f; // the exponential increase in cost per level
+        float idMultiplier = 1 + (id * 0.1f); // the unique cost increase per worker
+        return baseCost * (float)Math.Pow(costMultiplier, level - 1) * idMultiplier;
+       // float baseCost = 100; // some arbitrary base cost
+        //float costPerLevel = 50; // the linear increase in cost per level
+        //float idMultiplier = 1 + (id * 0.1f); // the unique cost increase per worker
+        //return baseCost + (costPerLevel * (level - 1)) * idMultiplier;
     }
     public void DetermineWins()
     {

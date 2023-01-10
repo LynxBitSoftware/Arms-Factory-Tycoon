@@ -28,6 +28,7 @@ public class Transportist : MonoBehaviour
     void Start()
     {
         initPos = this.transform.position;
+        CalculateCostUpgrade();
     }
 
     // Update is called once per frame
@@ -53,6 +54,7 @@ public class Transportist : MonoBehaviour
                 break;
             }
         }
+        //If there're no cars avaliable should wait 1s and look again for avaliable trucks
     }
     public IEnumerator SetDestination(Vector3 destination)
     {
@@ -74,7 +76,10 @@ public class Transportist : MonoBehaviour
         checkForAvaliableStock();
         yield return new WaitForSeconds(2f);
     }
-
+    public void CalculateCostUpgrade()
+    {
+        distribuidor.SetCostToUpgrade(GameManager.instance.CalculeCostToUpgrade(distribuidor.GetId(), distribuidor.GetLevel()));
+    }
     public void checkForAvaliableStock() 
     {
         if (stock.GetItemsList().Count > 0) 

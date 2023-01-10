@@ -24,6 +24,7 @@ public class WorkerController : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        CalculateCostUpgrade();
         InvokeRepeating("SpawnItem", constructor.GetTimeToProduce(), constructor.GetTimeToProduce());
     }
 
@@ -65,6 +66,11 @@ public class WorkerController : MonoBehaviour
             uiPerson.SetActive(true);
             SetDataUI();
         }
+    }
+
+    public void CalculateCostUpgrade() 
+    {
+        constructor.SetCostToUpgrade(GameManager.instance.CalculeCostToUpgrade(constructor.GetId(), constructor.GetLevel()));
     }
 
     //Set data UI
