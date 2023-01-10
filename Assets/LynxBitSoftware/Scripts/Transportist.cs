@@ -39,6 +39,14 @@ public class Transportist : MonoBehaviour
             //Start giving item to car
             DistributeItems();
         }
+        if (itemList.Count > numOfItemsStackable) 
+        {
+            DeleteItemsTransportistShouldNotHave();
+        }
+    }
+    public void DeleteItemsTransportistShouldNotHave() 
+    {
+        itemList.RemoveRange(numOfItemsStackable, itemList.Count - numOfItemsStackable);
     }
     public void DistributeItems() 
     {

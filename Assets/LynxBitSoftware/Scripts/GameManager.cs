@@ -32,9 +32,11 @@ public class GameManager : MonoBehaviour
     [SerializeField]
     private bool canGetPaid = false;
     [SerializeField]
-    private CurrencyController currency;
+    public CurrencyController currency;
     [SerializeField]
-    public float wins, loses, profit;
+    public CameraController camera;
+    [SerializeField]
+    public float wins, loses, profit, cameraIncreasePerLevel;
     [SerializeField]
     public int itemsStock, timeToPayPlayer;
 
@@ -96,6 +98,11 @@ public class GameManager : MonoBehaviour
             canGetPaid = true;
         }
     
+    }
+    public void ExpandFactory() 
+    {
+        camera = GameObject.FindGameObjectWithTag("MainCamera").GetComponent<CameraController>();
+        camera.maxX += cameraIncreasePerLevel;
     }
     /*
     public int GetIncomePerMin()

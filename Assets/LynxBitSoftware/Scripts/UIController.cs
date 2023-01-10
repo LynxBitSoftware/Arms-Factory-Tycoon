@@ -9,7 +9,7 @@ public class UIController : MonoBehaviour
     [SerializeField]
     private List<CarController> cars;
     [SerializeField]
-    private TextMeshProUGUI textCash, textIncomePerMin;
+    private TextMeshProUGUI textCash, textIncomePerMin, textGems;
     [SerializeField]
     private List<TextMeshProUGUI> textCapacityCars;
     [SerializeField]
@@ -38,6 +38,7 @@ public class UIController : MonoBehaviour
             textCapacityCars[i].text = cars[i].GetSizeItemsInCar() + " / " + cars[i].GetNumberOfStackableItems();
         }
         textCash.text = GameManager.instance.ConvertValueForUI(currency.GetCurrencyCash()) + "$";
+        textGems.text = currency.GetCurrencyGems().ToString();
         //textIncomePerMin.text = GameManager.instance.ConvertValueForUI(GameManager.instance.GetIncomePerMin()) + " / min";
     }
 

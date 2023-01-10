@@ -9,6 +9,7 @@ public class CurrencyController : MonoBehaviour
     void Start()
     {
         currency_cash = 0;
+        currency_gems = 0;
     }
     //Cash stuff
     public void AddCurrencyCash(float amount)
