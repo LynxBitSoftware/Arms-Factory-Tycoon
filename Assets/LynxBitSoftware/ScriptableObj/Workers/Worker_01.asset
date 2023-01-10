@@ -14,6 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   id: 1
   alias: Peter
+  costToUpgrade: 0
   level: 1
   speed: 0.5
   salary: 1
