@@ -14,10 +14,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   id: 3
   alias: Mike
-  costToUpgrade: 0
+  costToUpgrade: 65
   level: 1
   speed: 0.5
   salary: 1
   timeToProduce: 2
   item: {fileID: 11400000, guid: 0b683a98b6dc31042b15cd0b8106fffe, type: 2}
-  spriteWorker: {fileID: 0}
+  spriteWorker: {fileID: 21300000, guid: 5533a0c51abe9c34e9dcc54be3a742a5, type: 3}
