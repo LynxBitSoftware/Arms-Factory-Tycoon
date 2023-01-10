@@ -20,4 +20,4 @@ MonoBehaviour:
   salary: 1
   timeToProduce: 0.1
   item: {fileID: 11400000, guid: 0e7ad407a4bc9214d8dfd7bb44f7ddca, type: 2}
-  spriteWorker: {fileID: 21300000, guid: cf52ce46aa8481e49971291dcb255586, type: 3}
+  spriteWorker: {fileID: 21300000, guid: cba7146e10eb4914a8f8d80b995cb76c, type: 3}

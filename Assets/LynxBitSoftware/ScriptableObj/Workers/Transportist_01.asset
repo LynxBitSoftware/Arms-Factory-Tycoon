@@ -19,4 +19,4 @@ MonoBehaviour:
   speed: 2
   salary: 10
   timeToTransport: 0
-  spriteWorker: {fileID: 21300000, guid: 42ff7a865e6970741a51c74378ad38dc, type: 3}
+  spriteWorker: {fileID: 21300000, guid: 38630457e4a0d594e9bbd4d97052ddb7, type: 3}
