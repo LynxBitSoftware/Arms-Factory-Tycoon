@@ -17,7 +17,7 @@ public class UIController : MonoBehaviour
     [SerializeField]
     private GameObject uiTextCapacityCars;
     //UI 
-    public GameObject uiPerson,uiDistribuitor;
+    public GameObject uiPerson,uiDistribuitor, uiStats;
 
 
     // Start is called before the first frame update
@@ -62,6 +62,16 @@ public class UIController : MonoBehaviour
     public void CloseUIDistribuitor() 
     {
         uiDistribuitor.SetActive(false);
+    }
+        
+    public void OpenUIStats() 
+    {
+        uiStats.SetActive(true);
+    }
+    
+    public void CloseUIStats() 
+    {
+        uiStats.SetActive(false);
     }
 
     

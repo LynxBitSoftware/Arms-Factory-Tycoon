@@ -43,6 +43,18 @@ public class GameManager : MonoBehaviour
     [SerializeField]
     private GameObject item_ui_gameobject;
 
+    /*
+     * ESTADISTICAS 
+     * NOMBRE DEL JUGADOR
+     * BANDERA
+     * LOCALIZACIÓN
+     * DINERO RENTABLE POR TIEMPO
+     * 
+     *
+     *
+     
+     */
+
     // Start is called before the first frame update
     void Start()
     {
@@ -131,6 +143,7 @@ public class GameManager : MonoBehaviour
             return Mathf.RoundToInt(number).ToString(); // retornamos el número sin abreviar
         }
     }
+
     public void changeScene(string scene)
     {
         SceneManager.LoadScene(scene, LoadSceneMode.Single);
