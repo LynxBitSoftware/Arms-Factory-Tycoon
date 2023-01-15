@@ -24,6 +24,7 @@ public class WorkerController : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        this.gameObject.GetComponent<SpriteRenderer>().sprite = constructor.GetSpriteInGame();
         CalculateCostUpgrade();
         InvokeRepeating("SpawnItem", constructor.GetTimeToProduce(), constructor.GetTimeToProduce());
     }

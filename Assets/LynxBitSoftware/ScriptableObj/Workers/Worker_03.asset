@@ -21,3 +21,4 @@ MonoBehaviour:
   timeToProduce: 15
   item: {fileID: 11400000, guid: 817c8d94cbd5b75459e01ba2482313e7, type: 2}
   spriteWorker: {fileID: 21300000, guid: cb79609b71915af4ba194f7766b0fa2f, type: 3}
+  gameSprite: {fileID: -1409426378, guid: a7b8287b1bab14a44928222b72f546e9, type: 3}

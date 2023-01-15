@@ -10,7 +10,7 @@ public class Constructor : Trabajador
     [SerializeField]
     private Item item;
     [SerializeField]
-    private Sprite spriteWorker;
+    private Sprite spriteWorker, gameSprite;
 
     //Setters and Getters
     public void SetTimeToProduce(float TimeToProduce)
@@ -38,4 +38,9 @@ public class Constructor : Trabajador
     {
         return this.spriteWorker;
     }
+
+    public Sprite GetSpriteInGame()
+    {
+        return this.gameSprite;
     }
+}

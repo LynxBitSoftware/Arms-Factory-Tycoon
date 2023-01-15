@@ -13,11 +13,12 @@ MonoBehaviour:
   m_Name: Worker_02
   m_EditorClassIdentifier: 
   id: 3
-  alias: Mike
+  alias: Stephanie
   costToUpgrade: 65
   level: 1
   speed: 0.5
   salary: 10
   timeToProduce: 10
   item: {fileID: 11400000, guid: 7b963daf0673b0f4b90e2eeb3b3d5e17, type: 2}
-  spriteWorker: {fileID: 21300000, guid: cba7146e10eb4914a8f8d80b995cb76c, type: 3}
+  spriteWorker: {fileID: 21300000, guid: f3ec7ad9a1f1f5f4298145409647158c, type: 3}
+  gameSprite: {fileID: 43237063, guid: a7b8287b1bab14a44928222b72f546e9, type: 3}
