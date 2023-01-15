@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Pistol_01_USA
   m_EditorClassIdentifier: 
   id: 1
-  alias: M1911 (Pistol)
+  alias: 'M1911 '
   spriteItem: {fileID: -1103009910, guid: 5df5c876114fa814f8d8f0035ddb7865, type: 3}
   level: 1
   value: 1

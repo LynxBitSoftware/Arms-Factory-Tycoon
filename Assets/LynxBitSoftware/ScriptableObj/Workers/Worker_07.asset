@@ -19,5 +19,5 @@ MonoBehaviour:
   speed: 1
   salary: 35
   timeToProduce: 15
-  item: {fileID: 0}
+  item: {fileID: 11400000, guid: 717654216270b724f8b7aa6612d70da3, type: 2}
   spriteWorker: {fileID: 21300000, guid: 55f8568aa0ffe2b4d8fc06175c51f309, type: 3}

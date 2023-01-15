@@ -12,9 +12,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ac55bb8bf6ae29a4883e0f9e0b612b43, type: 3}
   m_Name: Rifle_07_USA
   m_EditorClassIdentifier: 
-  id: 0
-  alias: 
+  id: 14
+  alias: M1918 Browning Auto Rifle
   spriteItem: {fileID: 1369047015, guid: 5df5c876114fa814f8d8f0035ddb7865, type: 3}
-  level: 0
-  value: 0
-  multiplicador: 0
+  level: 1
+  value: 60
+  multiplicador: 1

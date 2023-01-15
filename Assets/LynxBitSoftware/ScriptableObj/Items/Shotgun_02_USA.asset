@@ -12,9 +12,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ac55bb8bf6ae29a4883e0f9e0b612b43, type: 3}
   m_Name: Shotgun_02_USA
   m_EditorClassIdentifier: 
-  id: 0
-  alias: 
+  id: 4
+  alias: Winchester Model 1912
   spriteItem: {fileID: 1772843921, guid: 5df5c876114fa814f8d8f0035ddb7865, type: 3}
-  level: 0
-  value: 0
-  multiplicador: 0
+  level: 1
+  value: 8
+  multiplicador: 1
