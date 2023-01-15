@@ -10,14 +10,14 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 9860da1fcdc4ff740bd25e6301714c6d, type: 3}
-  m_Name: Worker_01
+  m_Name: Worker_10
   m_EditorClassIdentifier: 
-  id: 1
-  alias: Peter
-  costToUpgrade: 55
+  id: 19
+  alias: Joseph
+  costToUpgrade: 0
   level: 1
-  speed: 0.5
-  salary: 5
-  timeToProduce: 5
-  item: {fileID: 11400000, guid: 0e7ad407a4bc9214d8dfd7bb44f7ddca, type: 2}
-  spriteWorker: {fileID: 21300000, guid: cba7146e10eb4914a8f8d80b995cb76c, type: 3}
+  speed: 1
+  salary: 50
+  timeToProduce: 15
+  item: {fileID: 0}
+  spriteWorker: {fileID: 21300000, guid: 55f8568aa0ffe2b4d8fc06175c51f309, type: 3}
