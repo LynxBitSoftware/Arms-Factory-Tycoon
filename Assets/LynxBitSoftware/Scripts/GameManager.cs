@@ -43,6 +43,7 @@ public class GameManager : MonoBehaviour
     [SerializeField]
     private GameObject item_ui_gameobject;
 
+    
     /*
      * ESTADISTICAS 
      * NOMBRE DEL JUGADOR
@@ -160,4 +161,7 @@ public class GameManager : MonoBehaviour
             item_ui_gameobject.SetActive(true);
         }
     }
+
+
+   
 }
