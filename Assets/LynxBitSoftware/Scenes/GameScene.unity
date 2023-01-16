@@ -12674,7 +12674,8 @@ MonoBehaviour:
   ItemName: {fileID: 202850585}
   ItemDescription: {fileID: 662875705}
   CrafteableDescription: {fileID: 438986330}
-  ButtonUpgradeable: {fileID: 0}
+  textCostWorker: {fileID: 0}
+  textCostGun: {fileID: 0}
   ItemSprite: {fileID: 1202857495}
   ItemWorker: {fileID: 344309869}
 --- !u!212 &225317845
@@ -25150,7 +25151,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &482245915
 RectTransform:
   m_ObjectHideFlags: 0
@@ -48259,7 +48260,8 @@ MonoBehaviour:
   ItemName: {fileID: 202850585}
   ItemDescription: {fileID: 662875705}
   CrafteableDescription: {fileID: 438986330}
-  ButtonUpgradeable: {fileID: 0}
+  textCostWorker: {fileID: 1885362544}
+  textCostGun: {fileID: 2013985351}
   ItemSprite: {fileID: 1202857495}
   ItemWorker: {fileID: 344309869}
 --- !u!61 &982164003
