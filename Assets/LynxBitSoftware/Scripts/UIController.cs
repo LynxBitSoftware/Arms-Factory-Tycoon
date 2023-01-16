@@ -2,6 +2,8 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
+using UnityEngine.UI;
+
 public class UIController : MonoBehaviour
 {
     [SerializeField]
@@ -21,6 +23,8 @@ public class UIController : MonoBehaviour
     public TextMeshProUGUI ItemName;
     public List<Constructor> list_constructor;
     public List<TextMeshProUGUI> list_ItemDescription;
+    public List<Image> list_ItemImage;
+    
 
 
 
@@ -53,11 +57,14 @@ public class UIController : MonoBehaviour
         for (int i = 0; i < list_constructor.Capacity; i++)
         {
             Constructor constructor = list_constructor[i];
-            list_ItemDescription[i].text = "Level: " + constructor.GetLevel() + "\n"
+            list_ItemDescription[i].text = "Weapon: " + constructor.GetItem().GetAlias() + "\n"+
+                "Level: " + constructor.GetItem().GetLevel() + "\n"
                         + "Time to Produce: " + constructor.GetTimeToProduce() + "\n"
                         + "Salary: " + constructor.GetSalary() + "\n"
-                        + "Item: " + constructor.GetItem().GetAlias() + "\n";
-            //Sprite sprite = constructor.GetSpriteInGame();
+                        ;
+            list_ItemImage[i].sprite = constructor.GetItem().GetSpriteItem();
+
+
         }
         
 
