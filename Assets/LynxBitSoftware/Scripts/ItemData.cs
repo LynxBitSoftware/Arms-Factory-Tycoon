@@ -8,9 +8,12 @@ public class ItemData : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        
+        calculateCostToUpgrade();
     }
-
+    public void calculateCostToUpgrade() 
+    {
+        GameManager.instance.CalculeCostToUpgrade(this.item.GetId(), this.item.GetLevel());
+    }
     // Update is called once per frame
     void Update()
     {

@@ -17,6 +17,8 @@ public class Item : ScriptableObject
     private int value;
     [SerializeField]
     private float multiplicador;
+    [SerializeField]
+    private float costToUpgrade;
 
     //Getters and Setters
     public int GetId() 
@@ -40,9 +42,21 @@ public class Item : ScriptableObject
     {
         return this.level;
     }
+
     public int GetValue()
     {
         return this.value;
+    }
+    public float GetCostToUpgrade()
+    {
+        return this.costToUpgrade;
+    }
+    public void SetCostToUpgrade(float cost)
+    {
+        if (this.costToUpgrade < cost)
+        {
+            this.costToUpgrade = cost;
+        }
     }
     public void SetId(int ID) 
     {
