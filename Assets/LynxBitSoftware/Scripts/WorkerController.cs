@@ -15,11 +15,10 @@ public class WorkerController : MonoBehaviour
     //UI 
     public GameObject uiPerson;
     //DataCosntructor
-    public TextMeshProUGUI ItemName, ItemDescription, CrafteableDescription, ButtonUpgradeable;
+    public TextMeshProUGUI ItemName, ItemDescription, CrafteableDescription, textCostWorker, textCostGun;
     public Image ItemSprite, ItemWorker;
-    
 
-    
+
 
     // Start is called before the first frame update
     void Start()
@@ -96,7 +95,9 @@ public class WorkerController : MonoBehaviour
         CrafteableDescription.text = "Level: " + constructor.GetItem().GetLevel()+ "\n"
             + "Value: " + constructor.GetItem().GetValue() + "\n"
             ;
+        textCostGun.text = "Cost: " + constructor.GetItem().GetCostToUpgrade();
+        textCostWorker.text = "Cost: " + constructor.GetCostToUpgrade();
     }
 
-    
+
 }
