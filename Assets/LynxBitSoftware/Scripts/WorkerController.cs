@@ -24,10 +24,12 @@ public class WorkerController : MonoBehaviour
     void Start()
     {
         this.gameObject.GetComponent<SpriteRenderer>().sprite = constructor.GetSpriteInGame();
+        CalculateCostToUpgradeGun();
         CalculateCostUpgrade();
         InvokeRepeating("SpawnItem", constructor.GetTimeToProduce(), constructor.GetTimeToProduce());
-    }
+    }     
 
+   
     public void SpawnItem() 
     {
         Vector3 itemSpawnPoint = conveyor.conveyorWaypointsList[constructor.GetId()-1].transform.position;
@@ -70,6 +72,10 @@ public class WorkerController : MonoBehaviour
     {
         constructor.SetCostToUpgrade(GameManager.instance.CalculeCostToUpgrade(constructor.GetId(), constructor.GetLevel()));
     }
+    public void CalculateCostToUpgradeGun()
+    {
+        constructor.GetItem().SetCostToUpgrade(GameManager.instance.CalculeCostToUpgrade(constructor.GetItem().GetId(), constructor.GetItem().GetLevel()));
+    }
 
     //Set data UI
     /*
@@ -81,7 +87,7 @@ public class WorkerController : MonoBehaviour
                 ButtonUpgrade -- CostUpgrade
                 ButtonExit
         */
-    
+
     public void SetDataUI()
     {
         ItemName.text = constructor.GetAlias();
@@ -92,7 +98,7 @@ public class WorkerController : MonoBehaviour
             + "Item: " + constructor.GetItem().GetAlias()+"\n"
             ;
         ItemSprite.sprite = constructor.GetItem().GetSpriteItem();
-        CrafteableDescription.text = "Level: " + constructor.GetItem().GetLevel()+ "\n"
+        CrafteableDescription.text = "Multiplier: " + constructor.GetItem().GetMultiplier()+ "\n"
             + "Value: " + constructor.GetItem().GetValue() + "\n"
             ;
         textCostGun.text = "Cost: " + constructor.GetItem().GetCostToUpgrade();
