@@ -11,7 +11,7 @@ public class UIController : MonoBehaviour
     [SerializeField]
     private List<CarController> cars;
     [SerializeField]
-    private TextMeshProUGUI textCash, textIncomePerMin, textGems, textCostWorker;
+    private TextMeshProUGUI textCash, textIncomePerMin, textGems, textCostWorker, textCostDoor;
     [SerializeField]
     private List<TextMeshProUGUI> textCapacityCars;
     [SerializeField]
@@ -19,11 +19,11 @@ public class UIController : MonoBehaviour
     [SerializeField]
     private GameObject uiTextCapacityCars;
     [SerializeField]
-    private GameObject workerBuyController, worker;
+    private GameObject workerBuyController, worker, lockDoor;
     [SerializeField]
-    private int costToUpgradeWorker;
+    private int costToUpgradeWorker, costToBuyDoor;
     //UI 
-    public GameObject uiPerson,uiDistribuitor, uiStats, uiBuyWorker;
+    public GameObject uiPerson,uiDistribuitor, uiStats, uiBuyWorker, uiBuyDoor;
     public TextMeshProUGUI ItemName;
     public List<Constructor> list_constructor;
     public List<TextMeshProUGUI> list_ItemDescription;
@@ -106,6 +106,19 @@ public class UIController : MonoBehaviour
         uiStats.SetActive(false);
     }
 
+    public void OpenUIBuyDoor(int costDoor, GameObject lockDoor)
+    {
+        textCostDoor.text = "Cost for door: " + costDoor + " $";
+        this.lockDoor = lockDoor;
+        this.costToBuyDoor = costDoor;
+        uiBuyDoor.SetActive(true);
+    }
+
+    public void CloseUIBuyDoor()
+    {
+        uiBuyDoor.SetActive(false);
+    }
+
     public void OpenUIBuyWorker(GameObject _worker, int _workerCost, GameObject button)
     {
         this.worker = _worker;
@@ -113,6 +126,18 @@ public class UIController : MonoBehaviour
         costToUpgradeWorker = _workerCost;
         textCostWorker.text = "Cost of new worker: " + costToUpgradeWorker + " $";
         uiBuyWorker.SetActive(true);
+    }
+    public void BuyDoor() 
+    {
+        CloseUIBuyDoor();
+        if (costToBuyDoor <= GameManager.instance.currency.GetCurrencyCash())
+        {
+            GameManager.instance.currency.SubstractCurrencyCash(costToBuyDoor);
+            Debug.Log("I bought a door for: " + costToBuyDoor);
+            GameManager.instance.ExpandFactory();
+            Destroy(lockDoor.gameObject);
+        }
+
     }
     public void BuyWorker()
     {

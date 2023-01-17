@@ -5,6 +5,8 @@ using UnityEngine;
 public class DoorController : MonoBehaviour
 {
     [SerializeField]
+    private UIController ui;
+    [SerializeField]
     private int doorCost;
     // Start is called before the first frame update
     void Start()
@@ -20,12 +22,7 @@ public class DoorController : MonoBehaviour
 
     public void OnMouseDown() 
     {
-        if (doorCost <= GameManager.instance.currency.GetCurrencyCash()) 
-        {
-            GameManager.instance.currency.SubstractCurrencyCash(doorCost);
-            Debug.Log("I bought a door for: " + doorCost);
-            GameManager.instance.ExpandFactory();
-            Destroy(this.gameObject);
-        }
+        ui.OpenUIBuyDoor(doorCost, this.gameObject);
+        
     }
 }
