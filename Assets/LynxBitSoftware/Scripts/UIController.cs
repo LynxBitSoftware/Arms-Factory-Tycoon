@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
 using UnityEngine.UI;
+using System;
 
 public class UIController : MonoBehaviour
 {
@@ -49,7 +50,7 @@ public class UIController : MonoBehaviour
         {
             textCapacityCars[i].text = cars[i].GetSizeItemsInCar() + " / " + cars[i].GetNumberOfStackableItems();
         }
-        textCash.text = GameManager.instance.ConvertValueForUI(currency.GetCurrencyCash()) + "$";
+        textCash.text = GameManager.instance.ConvertValueForUI(Convert.ToSingle(currency.GetCurrencyCash())) + "$";
         textGems.text = currency.GetCurrencyGems().ToString();
         //textIncomePerMin.text = GameManager.instance.ConvertValueForUI(GameManager.instance.GetIncomePerMin()) + " / min";
     }

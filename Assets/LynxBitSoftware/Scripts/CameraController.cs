@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -8,8 +9,8 @@ public class CameraController : MonoBehaviour
     public float moveSpeed = 10f;
 
     // Minimum and maximum x-coordinates of the slideable area
-    public float minX = -10f;
-    public float maxX = 10f;
+    public double minX = -10f;
+    public double maxX = 10f;
 
     // Update is called once per frame
     void Update()
@@ -24,7 +25,7 @@ public class CameraController : MonoBehaviour
         float newX = transform.position.x + movementAmount;
 
         // Clamp the x-coordinate of the camera to the slideable area
-        newX = Mathf.Clamp(newX, minX, maxX);
+        newX = Mathf.Clamp(newX, Convert.ToSingle(minX), Convert.ToSingle(maxX));
 
         // Move the camera
         transform.position = new Vector3(newX, transform.position.y, transform.position.z);

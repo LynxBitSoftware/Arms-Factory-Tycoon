@@ -6,18 +6,18 @@ using UnityEngine;
 public class Constructor : Trabajador
 {
     [SerializeField]
-    private float timeToProduce;
+    private double timeToProduce;
     [SerializeField]
     private Item item;
     [SerializeField]
     private Sprite spriteWorker, gameSprite;
 
     //Setters and Getters
-    public void SetTimeToProduce(float TimeToProduce)
+    public void SetTimeToProduce(double TimeToProduce)
     {
         this.timeToProduce = TimeToProduce;
     }
-    public float GetTimeToProduce()
+    public double GetTimeToProduce()
     {
         return this.timeToProduce;
 

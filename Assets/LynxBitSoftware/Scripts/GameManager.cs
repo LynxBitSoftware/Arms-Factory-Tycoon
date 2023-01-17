@@ -32,11 +32,15 @@ public class GameManager : MonoBehaviour
     [SerializeField]
     private bool canGetPaid = false;
     [SerializeField]
+    private UpgradeController upgradeController;
+    [SerializeField]
+    public  WorkerController workerToUpgrade;
+    [SerializeField]
     public CurrencyController currency;
     [SerializeField]
     public CameraController camera;
     [SerializeField]
-    public float wins, loses, profit, cameraIncreasePerLevel;
+    public double wins, loses, profit, cameraIncreasePerLevel;
     [SerializeField]
     public int itemsStock, timeToPayPlayer;
 
@@ -161,7 +165,35 @@ public class GameManager : MonoBehaviour
             item_ui_gameobject.SetActive(true);
         }
     }
+    public void UpgradeWorker()
+    {
+        if (workerToUpgrade == null) { return; }
+        upgradeController.UpgradeWorker(workerToUpgrade);
+    }
+    public void UpgradeGun()
+    {
+        if (workerToUpgrade == null) { return; }
+        upgradeController.UpgradeGun(workerToUpgrade);
+    }
+    public void UpgradeFilter()
+    {
+        upgradeController.UpgradeFilter();
+    }
+
+    public void UpgradeTransportist()
+    {
+        upgradeController.UpgradeTransportist();
+    }
+
+    public void UpgradeStock()
+    {
+        upgradeController.UpgradeStock();
+    }
+
+    public void UpgradeTruck()
+    {
+
+    }
 
 
-   
 }

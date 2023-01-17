@@ -55,9 +55,9 @@ public class CarController : MonoBehaviour
         itemsToTransport.Clear();
     }
 
-    public float CountItemValue() 
+    public double CountItemValue() 
     {
-        float totalValue = 0;
+        double totalValue = 0;
         if (itemsToTransport.Count == numOfItemsStackable) {
             for (int i = 0; i < itemsToTransport.Count; i++)
             {

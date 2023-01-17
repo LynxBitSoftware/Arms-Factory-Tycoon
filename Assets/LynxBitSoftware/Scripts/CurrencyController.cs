@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class CurrencyController : MonoBehaviour
 {
-    private float currency_cash, currency_gems;
+    private double currency_cash, currency_gems;
     // Start is called before the first frame update
     void Start()
     {
@@ -12,17 +12,17 @@ public class CurrencyController : MonoBehaviour
         currency_gems = 0;
     }
     //Cash stuff
-    public void AddCurrencyCash(float amount)
+    public void AddCurrencyCash(double amount)
     {
         currency_cash += amount;
     }
 
-    public void SubstractCurrencyCash(float amount) 
+    public void SubstractCurrencyCash(double amount) 
     {
        currency_cash -= amount;      
     }
 
-    public float GetCurrencyCash() 
+    public double GetCurrencyCash() 
     {
         return this.currency_cash;
     }
@@ -37,7 +37,7 @@ public class CurrencyController : MonoBehaviour
         currency_gems -= amount;
     }
 
-    public float GetCurrencyGems()
+    public double GetCurrencyGems()
     {
         return this.currency_gems;
     }

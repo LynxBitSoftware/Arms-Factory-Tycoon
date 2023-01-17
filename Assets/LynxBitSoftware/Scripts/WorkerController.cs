@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using TMPro;
@@ -26,7 +27,7 @@ public class WorkerController : MonoBehaviour
         this.gameObject.GetComponent<SpriteRenderer>().sprite = constructor.GetSpriteInGame();
         CalculateCostToUpgradeGun();
         CalculateCostUpgrade();
-        InvokeRepeating("SpawnItem", constructor.GetTimeToProduce(), constructor.GetTimeToProduce());
+        InvokeRepeating("SpawnItem", Convert.ToSingle(constructor.GetTimeToProduce()), Convert.ToSingle(constructor.GetTimeToProduce()));
     }     
 
    
@@ -63,6 +64,7 @@ public class WorkerController : MonoBehaviour
     {
         if (!uiPerson.activeSelf)
         {
+            GameManager.instance.workerToUpgrade = this.GetComponent<WorkerController>();
             uiPerson.SetActive(true);
             SetDataUI();
         }
@@ -98,7 +100,7 @@ public class WorkerController : MonoBehaviour
             + "Item: " + constructor.GetItem().GetAlias()+"\n"
             ;
         ItemSprite.sprite = constructor.GetItem().GetSpriteItem();
-        CrafteableDescription.text = "Multiplier: " + constructor.GetItem().GetMultiplier()+ "\n"
+        CrafteableDescription.text = "Level: " + constructor.GetItem().GetLevel() +"\n"+ "Multiplier: " + constructor.GetItem().GetMultiplier()+ "\n"
             + "Value: " + constructor.GetItem().GetValue() + "\n"
             ;
         textCostGun.text = "Cost: " + constructor.GetItem().GetCostToUpgrade();

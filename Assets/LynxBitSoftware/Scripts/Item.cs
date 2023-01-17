@@ -14,7 +14,7 @@ public class Item : ScriptableObject
     [SerializeField]
     private int level;
     [SerializeField]
-    private int value;
+    private double value;
     [SerializeField]
     private float multiplicador;
     [SerializeField]
@@ -43,7 +43,7 @@ public class Item : ScriptableObject
         return this.level;
     }
 
-    public int GetValue()
+    public double GetValue()
     {
         return this.value;
     }
@@ -78,7 +78,7 @@ public class Item : ScriptableObject
     {
         this.level = Level;
     }
-    public void SetValue(int Value)
+    public void SetValue(double Value)
     {
         this.value = Value;
     }

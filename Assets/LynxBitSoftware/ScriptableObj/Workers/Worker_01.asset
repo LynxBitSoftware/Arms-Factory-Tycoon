@@ -14,11 +14,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   id: 1
   alias: Peter
-  costToUpgrade: 55
+  costToUpgrade: 0
   level: 1
   speed: 0.5
   salary: 5
-  timeToProduce: 5
+  timeToProduce: 7.5
   item: {fileID: 11400000, guid: 0e7ad407a4bc9214d8dfd7bb44f7ddca, type: 2}
   spriteWorker: {fileID: 21300000, guid: cba7146e10eb4914a8f8d80b995cb76c, type: 3}
   gameSprite: {fileID: -2100606544, guid: a7b8287b1bab14a44928222b72f546e9, type: 3}
