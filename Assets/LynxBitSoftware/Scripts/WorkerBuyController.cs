@@ -6,6 +6,7 @@ public class WorkerBuyController : MonoBehaviour
 {
     [SerializeField]
     private int workerCost;
+    public UIController ui;
     public GameObject worker;
     // Start is called before the first frame update
     void Start()
@@ -21,12 +22,7 @@ public class WorkerBuyController : MonoBehaviour
 
     public void OnMouseDown()
     {
-        if (workerCost <= GameManager.instance.currency.GetCurrencyCash())
-        {
-            GameManager.instance.currency.SubstractCurrencyCash(workerCost);
-            Debug.Log("I bought a worker for: " + workerCost);
-            worker.SetActive(true);
-            Destroy(this.gameObject);
-        }
+        ui.OpenUIBuyWorker(worker, workerCost, this.gameObject);
+       
     }
 }

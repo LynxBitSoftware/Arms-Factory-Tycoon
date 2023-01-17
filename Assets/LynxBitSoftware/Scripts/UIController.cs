@@ -11,20 +11,23 @@ public class UIController : MonoBehaviour
     [SerializeField]
     private List<CarController> cars;
     [SerializeField]
-    private TextMeshProUGUI textCash, textIncomePerMin, textGems;
+    private TextMeshProUGUI textCash, textIncomePerMin, textGems, textCostWorker;
     [SerializeField]
     private List<TextMeshProUGUI> textCapacityCars;
     [SerializeField]
     private Camera camera;
     [SerializeField]
     private GameObject uiTextCapacityCars;
+    [SerializeField]
+    private GameObject workerBuyController, worker;
+    [SerializeField]
+    private int costToUpgradeWorker;
     //UI 
-    public GameObject uiPerson,uiDistribuitor, uiStats;
+    public GameObject uiPerson,uiDistribuitor, uiStats, uiBuyWorker;
     public TextMeshProUGUI ItemName;
     public List<Constructor> list_constructor;
     public List<TextMeshProUGUI> list_ItemDescription;
     public List<Image> list_ItemImage;
-    
 
 
 
@@ -103,5 +106,30 @@ public class UIController : MonoBehaviour
         uiStats.SetActive(false);
     }
 
-    
+    public void OpenUIBuyWorker(GameObject _worker, int _workerCost, GameObject button)
+    {
+        this.worker = _worker;
+        this.workerBuyController = button;
+        costToUpgradeWorker = _workerCost;
+        textCostWorker.text = "Cost of new worker: " + costToUpgradeWorker + " $";
+        uiBuyWorker.SetActive(true);
+    }
+    public void BuyWorker()
+    {
+        CloseUIBuyWorker();
+        if (costToUpgradeWorker <= GameManager.instance.currency.GetCurrencyCash())
+        {
+            GameManager.instance.currency.SubstractCurrencyCash(costToUpgradeWorker);
+            Debug.Log("I bought a worker for: " + costToUpgradeWorker);
+            worker.SetActive(true);
+            Destroy(workerBuyController.gameObject);
+        }
+    }
+    public void CloseUIBuyWorker()
+    {
+        uiBuyWorker.SetActive(false);
+    }
+
+
+
 }
