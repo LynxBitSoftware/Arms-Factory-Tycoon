@@ -16,6 +16,8 @@ public class Transportist : MonoBehaviour
     private int numOfItemsStackable;
     //UI 
     public GameObject uiPerson;
+    
+    public Slider slider;
     //DataCosntructor
     public TextMeshProUGUI ItemName, ItemDescription, ButtonUpgradeable;
     public Image ItemSprite;
@@ -32,6 +34,7 @@ public class Transportist : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        slider.maxValue = numOfItemsStackable;
         initPos = this.transform.position;
         CalculateCostUpgrade();
     }
@@ -39,6 +42,8 @@ public class Transportist : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        slider.value = itemList.Count;
+
         if (numOfItemsStackable == itemList.Count && canPickUpItem) {
             canPickUpItem = false;
             //Start giving item to car
@@ -48,6 +53,7 @@ public class Transportist : MonoBehaviour
         {
             DeleteItemsTransportistShouldNotHave();
         }
+
     }
     public void DeleteItemsTransportistShouldNotHave() 
     {
@@ -132,4 +138,6 @@ public class Transportist : MonoBehaviour
             + "Salary: " + distribuidor.GetSalary() + "\n"
             ;
     }
+
+    
 }

@@ -15,6 +15,7 @@ public class WorkerController : MonoBehaviour
     public ConveyorController conveyor;
     //UI 
     public GameObject uiPerson;
+    public Slider slider;
     //DataCosntructor
     public TextMeshProUGUI ItemName, ItemDescription, CrafteableDescription, textCostWorker, textCostGun;
     public Image ItemSprite, ItemWorker;
@@ -24,6 +25,7 @@ public class WorkerController : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        slider.maxValue = Convert.ToSingle(constructor.GetTimeToProduce());
         this.gameObject.GetComponent<SpriteRenderer>().sprite = constructor.GetSpriteInGame();
         CalculateCostToUpgradeGun();
         CalculateCostUpgrade();
@@ -56,7 +58,8 @@ public class WorkerController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+        if (slider.value == slider.maxValue && this.isActiveAndEnabled) slider.value = 0;
+        else     slider.value += Time.deltaTime;
     }
     
     //When Click on GameObject
