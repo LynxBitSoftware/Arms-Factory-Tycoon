@@ -57528,7 +57528,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   canGetPaid: 1
-  upgradeController: {fileID: 0}
+  upgradeController: {fileID: 992281838}
   workerToUpgrade: {fileID: 0}
   currency: {fileID: 1771497226}
   camera: {fileID: 0}
