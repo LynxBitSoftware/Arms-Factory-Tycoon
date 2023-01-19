@@ -36,6 +36,8 @@ public class GameManager : MonoBehaviour
     [SerializeField]
     public  WorkerController workerToUpgrade;
     [SerializeField]
+    public FilterController filterToUpgrade;
+    [SerializeField]
     public CurrencyController currency;
     [SerializeField]
     public CameraController camera;
@@ -177,7 +179,8 @@ public class GameManager : MonoBehaviour
     }
     public void UpgradeFilter()
     {
-        upgradeController.UpgradeFilter();
+        if (filterToUpgrade == null) { return; }
+        upgradeController.UpgradeFilter(filterToUpgrade);
     }
 
     public void UpgradeTransportist()

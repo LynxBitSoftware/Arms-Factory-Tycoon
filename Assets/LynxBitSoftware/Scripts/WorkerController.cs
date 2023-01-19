@@ -19,28 +19,30 @@ public class WorkerController : MonoBehaviour
     //DataCosntructor
     public TextMeshProUGUI ItemName, ItemDescription, CrafteableDescription, textCostWorker, textCostGun;
     public Image ItemSprite, ItemWorker;
-
+    public bool notWorking;
 
 
     // Start is called before the first frame update
     void Start()
     {
+        notWorking = true;
         slider.maxValue = Convert.ToSingle(constructor.GetTimeToProduce());
         this.gameObject.GetComponent<SpriteRenderer>().sprite = constructor.GetSpriteInGame();
         CalculateCostToUpgradeGun();
         CalculateCostUpgrade();
-        InvokeRepeating("SpawnItem", Convert.ToSingle(constructor.GetTimeToProduce()), Convert.ToSingle(constructor.GetTimeToProduce()));
+        
     }     
 
    
     public void SpawnItem() 
     {
+        
         Vector3 itemSpawnPoint = conveyor.conveyorWaypointsList[constructor.GetId()-1].transform.position;
         testItem.GetComponent<SpriteRenderer>().sprite = constructor.GetItem().GetSpriteItem();
         GameObject itemSpawned = Instantiate(testItem, itemSpawnPoint, Quaternion.identity);
         itemSpawned.GetComponent<ItemData>().item = constructor.GetItem();
         StartCoroutine(moveItemConveyor(itemSpawned));
-        moveItemConveyor(itemSpawned);
+        //moveItemConveyor(itemSpawned);
     }
 
     IEnumerator moveItemConveyor(GameObject item) {
@@ -55,9 +57,21 @@ public class WorkerController : MonoBehaviour
             actualDestination = conveyor.conveyorWaypointsList[conveyor.conveyorWaypointsList.Capacity - 1].transform;
         } 
     }
+    IEnumerator waitForWorkerFinished() 
+    {
+        yield return new WaitForSeconds(Convert.ToSingle(constructor.GetTimeToProduce()));
+        notWorking = true;
+    }
     // Update is called once per frame
     void Update()
     {
+        if (notWorking)
+        {
+            notWorking = false;
+            StartCoroutine(waitForWorkerFinished());
+            slider.maxValue = Convert.ToSingle(constructor.GetTimeToProduce());
+            Invoke("SpawnItem", Convert.ToSingle(constructor.GetTimeToProduce()));
+        }
         if (slider.value == slider.maxValue && this.isActiveAndEnabled) slider.value = 0;
         else     slider.value += Time.deltaTime;
     }
@@ -104,10 +118,10 @@ public class WorkerController : MonoBehaviour
             ;
         ItemSprite.sprite = constructor.GetItem().GetSpriteItem();
         CrafteableDescription.text = "Level: " + constructor.GetItem().GetLevel() +"\n"+ "Multiplier: " + constructor.GetItem().GetMultiplier()+ "\n"
-            + "Value: " + constructor.GetItem().GetValue() + "\n"
+            + "Value: " + GameManager.instance.ConvertValueForUI(Convert.ToSingle(constructor.GetItem().GetValue() * constructor.GetItem().GetMultiplier())) + "\n"
             ;
-        textCostGun.text = "Cost: " + constructor.GetItem().GetCostToUpgrade();
-        textCostWorker.text = "Cost: " + constructor.GetCostToUpgrade();
+        textCostGun.text = "Cost: " + GameManager.instance.ConvertValueForUI(constructor.GetItem().GetCostToUpgrade());
+        textCostWorker.text = "Cost: " + GameManager.instance.ConvertValueForUI(constructor.GetCostToUpgrade());
     }
 
 

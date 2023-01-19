@@ -16,7 +16,7 @@ public class Item : ScriptableObject
     [SerializeField]
     private double value;
     [SerializeField]
-    private float multiplicador;
+    private double multiplicador;
     [SerializeField]
     private float costToUpgrade;
 
@@ -25,7 +25,7 @@ public class Item : ScriptableObject
     {
         return this.id;
     }
-    public float GetMultiplier()
+    public double GetMultiplier()
     {
         return this.multiplicador;
     }
@@ -62,7 +62,7 @@ public class Item : ScriptableObject
     {
         this.id = ID;
     }
-    public void SetMultiplier(float multiplier) 
+    public void SetMultiplier(double multiplier) 
     {
         this.multiplicador = multiplier;
     }

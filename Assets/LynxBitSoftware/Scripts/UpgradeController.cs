@@ -19,15 +19,21 @@ public class UpgradeController : MonoBehaviour
     public double calculateNewTimeToProduce(double time) 
     {
         double newTimeToProduce;
-        newTimeToProduce = time - (time * 0.1f);
+        newTimeToProduce = time - 0.1f;
         return Math.Round(newTimeToProduce, 2);
     }
     public double calculateNewValue(double value) 
     {
         double newValue;
-        newValue = value + (value * 0.1f);
+        newValue = value + 1 + (value * 0.05f);
         return Math.Round(newValue, 2);
 
+    }
+    public double calculateNewMultiplier(double multiplier) 
+    {
+        double newMultiplier;
+        newMultiplier = multiplier + 0.1f;
+        return Math.Round(newMultiplier, 2);
     }
     public void UpgradeWorker(WorkerController worker) 
     {
@@ -51,9 +57,16 @@ public class UpgradeController : MonoBehaviour
             worker.SetDataUI();
         }
     }
-    public void UpgradeFilter() 
+    public void UpgradeFilter(FilterController filter) 
     { 
-    
+        if(GameManager.instance.currency.GetCurrencyCash() >= filter.filter.GetCostToUpgrade())
+        {
+            GameManager.instance.currency.SubstractCurrencyCash(filter.filter.GetCostToUpgrade());
+            filter.filter.SetLevel(filter.filter.GetLevel() + 1);
+            filter.filter.SetMultiplier(calculateNewMultiplier(filter.filter.GetMultiplier()));
+            filter.CalculateCostUpgrade();
+            filter.SetDataUI();
+        }
     }
 
     public void UpgradeTransportist() 

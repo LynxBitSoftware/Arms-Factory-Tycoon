@@ -24,7 +24,7 @@ public class UIController : MonoBehaviour
     [SerializeField]
     private int costToUpgradeWorker, costToBuyDoor, costToBuyFilter;
     //UI 
-    public GameObject uiPerson,uiDistribuitor, uiStats, uiBuyWorker, uiBuyDoor, uiBuyFilter;
+    public GameObject uiPerson,uiDistribuitor, uiStats, uiBuyWorker, uiBuyDoor, uiBuyFilter, uiFilter;
     public TextMeshProUGUI ItemName;
     public List<Constructor> list_constructor;
     public List<TextMeshProUGUI> list_ItemDescription;
@@ -180,6 +180,14 @@ public class UIController : MonoBehaviour
         uiBuyWorker.SetActive(false);
     }
 
+    public void CloseUIFilterUpgrade() 
+    {
+        uiFilter.SetActive(false);
+    }
+    public void OpenUIFilterUpgrade()
+    {
+        uiFilter.SetActive(true);
+    }
 
 
 }
