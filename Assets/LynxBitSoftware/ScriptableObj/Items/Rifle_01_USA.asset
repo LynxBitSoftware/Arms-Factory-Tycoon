@@ -18,3 +18,4 @@ MonoBehaviour:
   level: 1
   value: 25
   multiplicador: 1
+  costToUpgrade: 90

@@ -47,7 +47,7 @@ public class UpgradeController : MonoBehaviour
             GameManager.instance.currency.SubstractCurrencyCash(worker.constructor.GetItem().GetCostToUpgrade());
             worker.constructor.GetItem().SetLevel(worker.constructor.GetItem().GetLevel() + 1);
             worker.constructor.GetItem().SetValue(calculateNewValue(worker.constructor.GetItem().GetValue()));
-            worker.CalculateCostUpgrade();
+            worker.CalculateCostToUpgradeGun();
             worker.SetDataUI();
         }
     }

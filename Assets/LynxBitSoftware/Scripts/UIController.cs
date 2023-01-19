@@ -12,7 +12,7 @@ public class UIController : MonoBehaviour
     [SerializeField]
     private List<CarController> cars;
     [SerializeField]
-    private TextMeshProUGUI textCash, textIncomePerMin, textGems, textCostWorker, textCostDoor;
+    private TextMeshProUGUI textCash, textIncomePerMin, textGems, textCostWorker, textCostDoor, textCostFilter;
     [SerializeField]
     private List<TextMeshProUGUI> textCapacityCars;
     [SerializeField]
@@ -20,11 +20,11 @@ public class UIController : MonoBehaviour
     [SerializeField]
     private GameObject uiTextCapacityCars;
     [SerializeField]
-    private GameObject workerBuyController, worker, lockDoor;
+    private GameObject workerBuyController, filterBuyController, worker, lockDoor, filter;
     [SerializeField]
-    private int costToUpgradeWorker, costToBuyDoor;
+    private int costToUpgradeWorker, costToBuyDoor, costToBuyFilter;
     //UI 
-    public GameObject uiPerson,uiDistribuitor, uiStats, uiBuyWorker, uiBuyDoor;
+    public GameObject uiPerson,uiDistribuitor, uiStats, uiBuyWorker, uiBuyDoor, uiBuyFilter;
     public TextMeshProUGUI ItemName;
     public List<Constructor> list_constructor;
     public List<TextMeshProUGUI> list_ItemDescription;
@@ -119,14 +119,38 @@ public class UIController : MonoBehaviour
     {
         uiBuyDoor.SetActive(false);
     }
+    public void OpenUIBuyFilter(GameObject _filter, int _filterCost, GameObject button) 
+    {
+        this.filter = _filter;
+        this.filterBuyController = button;
+        costToBuyFilter = _filterCost;
+        textCostFilter.text = "Cost of new filter: " + GameManager.instance.ConvertValueForUI(costToBuyFilter) + " $";
+        uiBuyFilter.SetActive(true);
 
+    }
+    public void CloseUIBuyFilter() 
+    {
+        uiBuyFilter.SetActive(false);
+    }
     public void OpenUIBuyWorker(GameObject _worker, int _workerCost, GameObject button)
     {
         this.worker = _worker;
         this.workerBuyController = button;
         costToUpgradeWorker = _workerCost;
-        textCostWorker.text = "Cost of new worker: " + costToUpgradeWorker + " $";
+        textCostWorker.text = "Cost of new worker: " + GameManager.instance.ConvertValueForUI(costToUpgradeWorker) + " $";
         uiBuyWorker.SetActive(true);
+    }
+    public void BuyFilter()
+    {
+        CloseUIBuyFilter();
+        if (costToBuyFilter <= GameManager.instance.currency.GetCurrencyCash())
+        {
+            GameManager.instance.currency.SubstractCurrencyCash(costToBuyFilter);
+            Debug.Log("I bought a filter for: " + costToBuyDoor);
+            filter.SetActive(true);
+            Destroy(filterBuyController.gameObject);
+        }
+
     }
     public void BuyDoor() 
     {
