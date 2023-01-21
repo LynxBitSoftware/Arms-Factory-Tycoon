@@ -14,8 +14,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   id: 1
   alias: Peter
-  costToUpgrade: 370.01266
-  level: 21
+  costToUpgrade: 55
+  level: 1
   speed: 0.5
   salary: 5
   timeToProduce: 1

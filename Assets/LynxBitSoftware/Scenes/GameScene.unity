@@ -59315,9 +59315,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   canGetPaid: 1
+  canOpenUI: 0
   upgradeController: {fileID: 992281838}
   workerToUpgrade: {fileID: 0}
   filterToUpgrade: {fileID: 0}
+  transportistToUpgrade: {fileID: 0}
   currency: {fileID: 1771497226}
   camera: {fileID: 0}
   wins: 5
@@ -61441,7 +61443,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 992281836}
         m_TargetAssemblyTypeName: GameManager, Assembly-CSharp
-        m_MethodName: UpgradeFilter
+        m_MethodName: UpgradeTransportist
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -66614,7 +66616,6 @@ MonoBehaviour:
   - {fileID: 879694528}
   canPickUpItem: 1
   initPos: {x: 0, y: 0, z: 0}
-  numOfItemsStackable: 10
   uiPerson: {fileID: 1968461994}
   slider: {fileID: 69790387}
   ItemName: {fileID: 240641110}

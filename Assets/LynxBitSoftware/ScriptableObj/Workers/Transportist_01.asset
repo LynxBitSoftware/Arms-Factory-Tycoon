@@ -14,9 +14,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   id: 2
   alias: James
-  costToUpgrade: 60.000004
+  costToUpgrade: 0
   level: 1
   speed: 2
   salary: 10
   timeToTransport: 0
   spriteWorker: {fileID: 21300000, guid: 38630457e4a0d594e9bbd4d97052ddb7, type: 3}
+  numOfItemsStackable: 10
