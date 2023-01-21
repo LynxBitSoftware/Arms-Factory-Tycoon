@@ -35,6 +35,11 @@ public class UpgradeController : MonoBehaviour
         newMultiplier = multiplier + 0.1f;
         return Math.Round(newMultiplier, 2);
     }
+
+    public int calculateNewCapacityTransportist(int numOfStackableItems) 
+    {
+        return numOfStackableItems + 5;
+    }
     public void UpgradeWorker(WorkerController worker) 
     {
         if (GameManager.instance.currency.GetCurrencyCash() >= worker.constructor.GetCostToUpgrade()) 
@@ -69,9 +74,16 @@ public class UpgradeController : MonoBehaviour
         }
     }
 
-    public void UpgradeTransportist() 
+    public void UpgradeTransportist(Transportist transportist) 
     {
-    
+        if (GameManager.instance.currency.GetCurrencyCash() >= transportist.distribuidor.GetCostToUpgrade())
+        {
+            GameManager.instance.currency.SubstractCurrencyCash(transportist.distribuidor.GetCostToUpgrade());
+            transportist.distribuidor.SetLevel(transportist.distribuidor.GetLevel() + 1);
+            transportist.distribuidor.SetnumOfItemsStackable(calculateNewCapacityTransportist(transportist.distribuidor.GetnumOfItemsStackable()));
+            transportist.CalculateCostUpgrade();
+            transportist.SetDataUI();
+        }
     }
 
     public void UpgradeStock() 

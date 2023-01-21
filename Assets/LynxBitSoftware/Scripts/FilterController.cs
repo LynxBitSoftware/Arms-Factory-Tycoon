@@ -37,6 +37,7 @@ public class FilterController : MonoBehaviour
     {
         if (!uiFilter.activeSelf)
         {
+            GameManager.instance.canOpenUI = false;
             GameManager.instance.filterToUpgrade = this.GetComponent<FilterController>();
             CalculateCostUpgrade();
             uiFilter.SetActive(true);

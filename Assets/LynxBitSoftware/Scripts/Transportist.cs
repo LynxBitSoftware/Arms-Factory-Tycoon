@@ -12,29 +12,19 @@ public class Transportist : MonoBehaviour
     public List<CarController> cars;
     public bool canPickUpItem = true;
     public Vector3 initPos;
-    [SerializeField]
-    private int numOfItemsStackable;
     //UI 
     public GameObject uiPerson;
     
     public Slider slider;
     //DataCosntructor
-    public TextMeshProUGUI ItemName, ItemDescription, ButtonUpgradeable;
+    public TextMeshProUGUI ItemName, ItemDescription, textCostUpgradeTransportist;
     public Image ItemSprite;
 
     // Start is called before the first frame update
-    public void SetNumberOfStackableItems(int maxItem)
-    {
-        this.numOfItemsStackable = maxItem;
-    }
-    public int GetNumberOfStackableItems()
-    {
-        return this.numOfItemsStackable;
-    }
     // Start is called before the first frame update
     void Start()
     {
-        slider.maxValue = numOfItemsStackable;
+        slider.maxValue = distribuidor.GetnumOfItemsStackable();
         initPos = this.transform.position;
         CalculateCostUpgrade();
     }
@@ -44,12 +34,12 @@ public class Transportist : MonoBehaviour
     {
         slider.value = itemList.Count;
 
-        if (numOfItemsStackable == itemList.Count && canPickUpItem) {
+        if (distribuidor.GetnumOfItemsStackable() == itemList.Count && canPickUpItem) {
             canPickUpItem = false;
             //Start giving item to car
             DistributeItems();
         }
-        if (itemList.Count > numOfItemsStackable) 
+        if (itemList.Count > distribuidor.GetnumOfItemsStackable()) 
         {
             DeleteItemsTransportistShouldNotHave();
         }
@@ -57,7 +47,7 @@ public class Transportist : MonoBehaviour
     }
     public void DeleteItemsTransportistShouldNotHave() 
     {
-        itemList.RemoveRange(numOfItemsStackable, itemList.Count - numOfItemsStackable);
+        itemList.RemoveRange(distribuidor.GetnumOfItemsStackable(), itemList.Count - distribuidor.GetnumOfItemsStackable());
     }
     public void DistributeItems() 
     {
@@ -103,7 +93,7 @@ public class Transportist : MonoBehaviour
     {
         if (stock.GetItemsList().Count > 0) 
         { 
-            for(int i = 0; i < numOfItemsStackable; i++) 
+            for(int i = 0; i < distribuidor.GetnumOfItemsStackable(); i++) 
             {
                 if (stock.GetItemInStockPos(0) == null) { break; }
                 //if (i < stock.GetItemsList().Count)
@@ -125,6 +115,8 @@ public class Transportist : MonoBehaviour
     {
         if (!uiPerson.activeSelf)
         {
+            GameManager.instance.canOpenUI = false;
+            GameManager.instance.transportistToUpgrade = this.gameObject.GetComponent<Transportist>();
             uiPerson.SetActive(true);
             SetDataUI();
         }
@@ -136,7 +128,9 @@ public class Transportist : MonoBehaviour
         ItemSprite.sprite = distribuidor.GetSpriteWorker();
         ItemDescription.text = "Level: " + distribuidor.GetLevel() + "\n"
             + "Salary: " + distribuidor.GetSalary() + "\n"
+            + "Capacity: " + distribuidor.GetnumOfItemsStackable();
             ;
+        textCostUpgradeTransportist.text = "Cost: " + GameManager.instance.ConvertValueForUI(distribuidor.GetCostToUpgrade()) + " $";
     }
 
     

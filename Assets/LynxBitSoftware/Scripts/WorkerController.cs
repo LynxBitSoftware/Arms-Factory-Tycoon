@@ -81,6 +81,7 @@ public class WorkerController : MonoBehaviour
     {
         if (!uiPerson.activeSelf)
         {
+            GameManager.instance.canOpenUI = false;
             GameManager.instance.workerToUpgrade = this.GetComponent<WorkerController>();
             uiPerson.SetActive(true);
             SetDataUI();

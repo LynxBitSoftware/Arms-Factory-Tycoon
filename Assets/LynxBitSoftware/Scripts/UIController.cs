@@ -12,7 +12,7 @@ public class UIController : MonoBehaviour
     [SerializeField]
     private List<CarController> cars;
     [SerializeField]
-    private TextMeshProUGUI textCash, textIncomePerMin, textGems, textCostWorker, textCostDoor, textCostFilter;
+    private TextMeshProUGUI textCash, textIncomePerMin, textGems, textCostWorker, textCostDoor, textCostFilter, textCostTransportist;
     [SerializeField]
     private List<TextMeshProUGUI> textCapacityCars;
     [SerializeField]
@@ -89,56 +89,77 @@ public class UIController : MonoBehaviour
 
     public void CloseUIPerson() 
     {
+        GameManager.instance.canOpenUI = true;
         uiPerson.SetActive(false);
     }
     
     public void CloseUIDistribuitor() 
     {
+        GameManager.instance.canOpenUI = true;
         uiDistribuitor.SetActive(false);
     }
         
     public void OpenUIStats() 
     {
-        uiStats.SetActive(true);
+        if (GameManager.instance.canOpenUI) {
+            GameManager.instance.canOpenUI = false;
+            uiStats.SetActive(true);
+        }
+        
     }
     
     public void CloseUIStats() 
     {
+        GameManager.instance.canOpenUI = true;
         uiStats.SetActive(false);
     }
 
     public void OpenUIBuyDoor(int costDoor, GameObject lockDoor)
     {
-        textCostDoor.text = "Cost for door: " + costDoor + " $";
-        this.lockDoor = lockDoor;
-        this.costToBuyDoor = costDoor;
-        uiBuyDoor.SetActive(true);
+        if (GameManager.instance.canOpenUI)
+        {
+            GameManager.instance.canOpenUI = false;
+            textCostDoor.text = "Cost for door: " + costDoor + " $";
+            this.lockDoor = lockDoor;
+            this.costToBuyDoor = costDoor;
+            uiBuyDoor.SetActive(true);
+        }
     }
 
     public void CloseUIBuyDoor()
     {
+        GameManager.instance.canOpenUI = true;
         uiBuyDoor.SetActive(false);
     }
     public void OpenUIBuyFilter(GameObject _filter, int _filterCost, GameObject button) 
     {
-        this.filter = _filter;
-        this.filterBuyController = button;
-        costToBuyFilter = _filterCost;
-        textCostFilter.text = "Cost of new filter: " + GameManager.instance.ConvertValueForUI(costToBuyFilter) + " $";
-        uiBuyFilter.SetActive(true);
+        if (GameManager.instance.canOpenUI)
+        {
+            GameManager.instance.canOpenUI = false;
+            this.filter = _filter;
+            this.filterBuyController = button;
+            costToBuyFilter = _filterCost;
+            textCostFilter.text = "Cost of new filter: " + GameManager.instance.ConvertValueForUI(costToBuyFilter) + " $";
+            uiBuyFilter.SetActive(true);
+        }
 
     }
     public void CloseUIBuyFilter() 
     {
+        GameManager.instance.canOpenUI = true;
         uiBuyFilter.SetActive(false);
     }
     public void OpenUIBuyWorker(GameObject _worker, int _workerCost, GameObject button)
     {
-        this.worker = _worker;
-        this.workerBuyController = button;
-        costToUpgradeWorker = _workerCost;
-        textCostWorker.text = "Cost of new worker: " + GameManager.instance.ConvertValueForUI(costToUpgradeWorker) + " $";
-        uiBuyWorker.SetActive(true);
+        if (GameManager.instance.canOpenUI)
+        {
+            GameManager.instance.canOpenUI = false;
+            this.worker = _worker;
+            this.workerBuyController = button;
+            costToUpgradeWorker = _workerCost;
+            textCostWorker.text = "Cost of new worker: " + GameManager.instance.ConvertValueForUI(costToUpgradeWorker) + " $";
+            uiBuyWorker.SetActive(true);
+        }
     }
     public void BuyFilter()
     {
@@ -177,15 +198,18 @@ public class UIController : MonoBehaviour
     }
     public void CloseUIBuyWorker()
     {
+        GameManager.instance.canOpenUI = true;
         uiBuyWorker.SetActive(false);
     }
 
     public void CloseUIFilterUpgrade() 
     {
+        GameManager.instance.canOpenUI = true;
         uiFilter.SetActive(false);
     }
     public void OpenUIFilterUpgrade()
     {
+        GameManager.instance.canOpenUI = true;
         uiFilter.SetActive(true);
     }
 

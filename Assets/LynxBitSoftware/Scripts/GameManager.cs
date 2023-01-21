@@ -30,13 +30,15 @@ public class GameManager : MonoBehaviour
         }
     }
     [SerializeField]
-    private bool canGetPaid = false;
+    public bool canGetPaid, canOpenUI;
     [SerializeField]
     private UpgradeController upgradeController;
     [SerializeField]
     public  WorkerController workerToUpgrade;
     [SerializeField]
     public FilterController filterToUpgrade;
+    [SerializeField]
+    public Transportist transportistToUpgrade;
     [SerializeField]
     public CurrencyController currency;
     [SerializeField]
@@ -65,6 +67,7 @@ public class GameManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        GameManager.instance.canOpenUI = true;
         profit = 0;
         FindCurrencyController();
         //Test of salary
@@ -185,7 +188,7 @@ public class GameManager : MonoBehaviour
 
     public void UpgradeTransportist()
     {
-        upgradeController.UpgradeTransportist();
+        upgradeController.UpgradeTransportist(transportistToUpgrade);
     }
 
     public void UpgradeStock()
