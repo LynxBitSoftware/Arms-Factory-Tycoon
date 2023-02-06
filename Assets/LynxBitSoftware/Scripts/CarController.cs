@@ -1,6 +1,8 @@
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class CarController : MonoBehaviour
 {
@@ -9,7 +11,10 @@ public class CarController : MonoBehaviour
     private List<Item> itemsToTransport;
     [SerializeField]
     public bool canStack;
+    public Truck truck;
     public TruckMovement truckMovement;
+    public TextMeshProUGUI ItemDescription, textCostUpgradeStock;
+    public Image ItemSprite;
     [SerializeField]
     private int numOfItemsStackable;
     // Start is called before the first frame update
@@ -54,11 +59,23 @@ public class CarController : MonoBehaviour
     {
         itemsToTransport.Clear();
     }
+    public void SetDataUI() 
+    {
 
+        ItemSprite.sprite = truck.GetSprite();
+        ItemDescription.text = "Level: " + truck.GetLevel() + "\n"
+            + "Capacity: " + truck.GetCapacity();
+        ;
+        textCostUpgradeStock.text = "Cost: " + GameManager.instance.ConvertValueForUI(truck.GetCostToUpgrade()) + " $";
+    }
+    public void CalculateCostUpgrade() 
+    {
+        truck.SetCostToUpgrade(GameManager.instance.CalculeCostToUpgrade(truck.GetId(), truck.GetLevel()));
+    }
     public double CountItemValue() 
     {
         double totalValue = 0;
-        if (itemsToTransport.Count == numOfItemsStackable) {
+        if (itemsToTransport.Count == truck.GetCapacity()) {
             for (int i = 0; i < itemsToTransport.Count; i++)
             {
                 totalValue += itemsToTransport[i].GetValue() * itemsToTransport[i].GetMultiplier(); 

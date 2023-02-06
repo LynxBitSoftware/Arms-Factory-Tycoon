@@ -20,11 +20,11 @@ public class UIController : MonoBehaviour
     [SerializeField]
     private GameObject uiTextCapacityCars;
     [SerializeField]
-    private GameObject workerBuyController, filterBuyController, worker, lockDoor, filter;
+    private GameObject workerBuyController, filterBuyController, worker, lockDoor, filter, stock;
     [SerializeField]
     private int costToUpgradeWorker, costToBuyDoor, costToBuyFilter;
     //UI 
-    public GameObject uiPerson,uiDistribuitor, uiStats, uiBuyWorker, uiBuyDoor, uiBuyFilter, uiFilter;
+    public GameObject uiPerson,uiDistribuitor, uiStats, uiBuyWorker, uiBuyDoor, uiBuyFilter, uiFilter, uiStockAndTruck;
     public TextMeshProUGUI ItemName;
     public List<Constructor> list_constructor;
     public List<TextMeshProUGUI> list_ItemDescription;
@@ -107,7 +107,16 @@ public class UIController : MonoBehaviour
         }
         
     }
-    
+    public void OpenUIStockAndTruck()
+    {
+        if (GameManager.instance.canOpenUI)
+        {
+            GameManager.instance.canOpenUI = false;
+            uiStockAndTruck.SetActive(true);
+        }
+    }
+
+
     public void CloseUIStats() 
     {
         GameManager.instance.canOpenUI = true;
@@ -206,6 +215,11 @@ public class UIController : MonoBehaviour
     {
         GameManager.instance.canOpenUI = true;
         uiFilter.SetActive(false);
+    }
+    public void CloseUIStockAndTruck()
+    {
+        GameManager.instance.canOpenUI = true;
+        uiStockAndTruck.SetActive(false);
     }
     public void OpenUIFilterUpgrade()
     {

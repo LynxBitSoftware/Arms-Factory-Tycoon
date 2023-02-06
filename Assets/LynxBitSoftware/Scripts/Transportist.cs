@@ -113,7 +113,7 @@ public class Transportist : MonoBehaviour
     //When Click on GameObject
     public void OnMouseDown()
     {
-        if (!uiPerson.activeSelf)
+        if (!uiPerson.activeSelf && GameManager.instance.canOpenUI)
         {
             GameManager.instance.canOpenUI = false;
             GameManager.instance.transportistToUpgrade = this.gameObject.GetComponent<Transportist>();

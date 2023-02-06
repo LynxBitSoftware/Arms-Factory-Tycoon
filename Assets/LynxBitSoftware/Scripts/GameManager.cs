@@ -40,6 +40,10 @@ public class GameManager : MonoBehaviour
     [SerializeField]
     public Transportist transportistToUpgrade;
     [SerializeField]
+    public StockController stockToUpgrade;
+    [SerializeField]
+    public CarController truckToUpgrade;
+    [SerializeField]
     public CurrencyController currency;
     [SerializeField]
     public CameraController camera;
@@ -188,17 +192,20 @@ public class GameManager : MonoBehaviour
 
     public void UpgradeTransportist()
     {
+        if (transportistToUpgrade == null) { return; }
         upgradeController.UpgradeTransportist(transportistToUpgrade);
     }
 
     public void UpgradeStock()
     {
-        upgradeController.UpgradeStock();
+        if (stockToUpgrade == null) { return; }
+        upgradeController.UpgradeStock(stockToUpgrade);
     }
 
     public void UpgradeTruck()
     {
-
+        if (truckToUpgrade == null) { return; }
+        upgradeController.UpgradeTruck(truckToUpgrade);
     }
 
 
